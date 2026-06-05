@@ -3,7 +3,7 @@ import { brand } from "../data";
 
 export function WhatsAppButton() {
   const message = encodeURIComponent(
-    `Hello ${brand.name}, I would like help with my travel or visa application.`
+    `Hello ${brand.name}, I need a quote for solar, inverter, battery, CCTV, or smart home services.`
   );
 
   return (

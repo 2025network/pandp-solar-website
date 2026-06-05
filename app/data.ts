@@ -1,137 +1,257 @@
-import {
-  BriefcaseBusiness,
-  Building2,
-  CalendarCheck,
-  FileCheck2,
-  GraduationCap,
-  HeartPulse,
-  Hotel,
-  MapPinned,
-  Plane,
-  RefreshCcw,
+﻿import {
+  BatteryCharging,
+  Camera,
+  ClipboardCheck,
+  Factory,
+  Home,
+  PlugZap,
   ShieldCheck,
-  UsersRound,
+  SlidersHorizontal,
+  SunMedium,
+  Wrench,
 } from "lucide-react";
 
 export const brand = {
-  name: "Gifted-Faith Global Ventures",
-  slogan: "Guided by Faith, Connected to the World.",
-  tagline: "Travel, visa assistance, bookings, and document support.",
-  phone: "+234 000 000 0000",
-  whatsapp: "2340000000000",
-  email: "info@giftedfaithglobal.com",
-  address: "Suite 00, Travel Plaza, Lagos, Nigeria",
+  name: "P&P ADVANCE TECH BRANDS LIMITED",
+  shortName: "P&P Advance Tech",
+  slogan: "Renewable energy, security, and smart technology solutions.",
+  tagline:
+    "Solar inverter materials, solar installation, battery backup, CCTV, and smart automation for Nigerian homes and businesses.",
+  phone: "09036526870, 09041189484",
+  primaryPhone: "09036526870",
+  whatsapp: "2349036526870",
+  email: "pandpadvancetech@gmail.com",
+  address:
+    "A15 Owa Shopping Complex, opposite City Map Plaza, along Abuja-Keffi Expressway",
+  rcNumber: "9558604",
+  companyType: "Private Company Limited by Shares",
 };
 
 export const navItems = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/services", label: "Services" },
-  { href: "/blog", label: "Blog" },
-  { href: "/apply-now", label: "Apply Now" },
-  { href: "/track-application", label: "Track Application" },
+  { href: "/projects", label: "Projects" },
   { href: "/contact", label: "Contact" },
 ];
 
 export const services = [
-  { title: "UK Visa Assistance", description: "Guidance for visitor, family, study, and business travel documentation.", icon: Building2 },
-  { title: "Canada Visa Assistance", description: "Support with forms, appointment readiness, and organized application files.", icon: MapPinned },
-  { title: "USA Visa Appointment", description: "Help with appointment booking preparation and travel-purpose documentation.", icon: CalendarCheck },
-  { title: "Study Visa Support", description: "Student-focused document review, checklist planning, and application support.", icon: GraduationCap },
-  { title: "Tourism Travel Planning", description: "Personalized itineraries, reservations, and destination planning for holidays.", icon: Plane },
-  { title: "Business Travel Support", description: "Professional support for meetings, conferences, and corporate trips.", icon: BriefcaseBusiness },
-  { title: "Medical Travel Support", description: "Organized travel support for treatment visits and medical appointments.", icon: HeartPulse },
-  { title: "Family Visit Visa Support", description: "Document compilation support for visiting relatives and loved ones abroad.", icon: UsersRound },
-  { title: "Flight Reservation", description: "Reservation support aligned with your travel dates and application needs.", icon: Plane },
-  { title: "Hotel Reservation", description: "Accommodation booking support for travel, visa, and itinerary purposes.", icon: Hotel },
-  { title: "Passport Renewal Support", description: "Guidance for passport renewal steps, requirements, and appointment planning.", icon: RefreshCcw },
-  { title: "Document Compilation and Organization", description: "Clear, complete, and well-arranged document packs for stronger submissions.", icon: FileCheck2 },
-];
-
-export const supportedCountries = [
-  "United Kingdom",
-  "Canada",
-  "United States",
-  "Schengen Area",
-  "Australia",
-  "United Arab Emirates",
-  "Turkey",
-  "Ireland",
-];
-
-export const processSteps = [
-  "Submit your application request",
-  "Receive a tracking code",
-  "Get a tailored document checklist",
-  "Upload and organize documents",
-  "Monitor status updates",
+  {
+    title: "Sales of solar inverter materials",
+    description:
+      "Supply of quality solar panels, inverters, batteries, charge controllers, breakers, cables, and accessories for reliable power systems.",
+    icon: PlugZap,
+  },
+  {
+    title: "Solar inverter system design, installation and maintenance",
+    description:
+      "Complete load assessment, system design, installation, testing, handover, maintenance, and performance support.",
+    icon: SlidersHorizontal,
+  },
+  {
+    title: "CCTV and security systems",
+    description:
+      "Design, installation, and maintenance of CCTV/security systems for homes, offices, estates, schools, stores, and industrial sites.",
+    icon: Camera,
+  },
+  {
+    title: "Smart home technology and automation",
+    description:
+      "Smart lighting, controls, monitoring, automation, and connected technology that improves comfort, security, and efficiency.",
+    icon: Home,
+  },
+  {
+    title: "Battery backup systems",
+    description:
+      "Battery banks and inverter backup systems sized for practical runtime during grid outages and fuel-saving operation.",
+    icon: BatteryCharging,
+  },
+  {
+    title: "Solar panel installation",
+    description:
+      "Professional rooftop, ground-mounted, residential, commercial, and industrial solar panel installation with neat workmanship.",
+    icon: SunMedium,
+  },
+  {
+    title: "Residential, commercial and industrial solar solutions",
+    description:
+      "Scalable renewable energy solutions for private homes, offices, retail outlets, clinics, schools, warehouses, and production sites.",
+    icon: Factory,
+  },
 ];
 
 export const trustPoints = [
-  { value: "12+", label: "Travel support services" },
-  { value: "24/7", label: "WhatsApp inquiry access" },
-  { value: "Secure", label: "Document upload workflow" },
-  { value: "Tracked", label: "Application status updates" },
+  { value: "CAC", label: "Registered Company" },
+  { value: `RC ${brand.rcNumber}`, label: "Registration Number" },
+  { value: "Ltd", label: brand.companyType },
+  { value: "Nigeria", label: "Renewable energy and smart technology company" },
+];
+
+export const strengthStats = [
+  { value: "56", label: "Staff" },
+  { value: "250kVA", label: "Installed inverter capacity" },
+  { value: "350kW", label: "Battery bank capacity" },
+  { value: "185kW", label: "PV arrays capacity" },
 ];
 
 export const reasons = [
-  { title: "Clear guidance", description: "We simplify travel requirements into practical next steps.", icon: ShieldCheck },
-  { title: "Organized documents", description: "Your files are checked, arranged, and prepared for review.", icon: FileCheck2 },
-  { title: "Responsive support", description: "You get steady communication from inquiry to travel readiness.", icon: CalendarCheck },
+  {
+    title: "Registered and accountable",
+    description:
+      "P&P Advance Tech is a CAC registered Nigerian company with RC Number 9558604.",
+    icon: ShieldCheck,
+  },
+  {
+    title: "Technical capacity",
+    description:
+      "Our team supports projects across inverter systems, PV arrays, battery banks, CCTV, and automation.",
+    icon: Wrench,
+  },
+  {
+    title: "End-to-end service",
+    description:
+      "We supply materials, design systems, install professionally, maintain assets, and advise clients clearly.",
+    icon: ClipboardCheck,
+  },
+];
+
+export const partners = [
+  "Felicity Solar",
+  "Growatt",
+  "Victron Energy",
+  "Africell Energy Solar",
+  "Firman",
+  "Powermax Solar",
+  "Jinko Solar",
+  "Deye",
+  "Solis",
+];
+
+export const projectPhotos = [
+  {
+    title: "Solar panel installation",
+    category: "Solar panel installation",
+    description:
+      "Clean PV array installation for reliable daytime generation and reduced generator dependence.",
+    location: "Nigeria",
+    systemType: "PV array",
+    image: "/projects/solar-installation-1.jpg",
+  },
+  {
+    title: "Solar array commissioning",
+    category: "Solar panel installation",
+    description:
+      "Solar panel setup, connection checks, and commissioning for steady system performance.",
+    location: "Nigeria",
+    systemType: "Solar installation",
+    image: "/projects/solar-installation-2.jpg",
+  },
+  {
+    title: "Inverter installation",
+    category: "Inverter installation",
+    description:
+      "Neat inverter installation for stable backup power during grid interruptions.",
+    location: "Nigeria",
+    systemType: "Inverter system",
+    image: "/projects/inverter-installation-1.jpg",
+  },
+  {
+    title: "Battery backup setup",
+    category: "Battery backup setup",
+    description:
+      "Battery bank setup for longer runtime, better load support, and safer storage.",
+    location: "Nigeria",
+    systemType: "Battery backup",
+    image: "/projects/battery-backup-1.jpg",
+  },
+  {
+    title: "Technicians at work",
+    category: "Technicians at work",
+    description:
+      "Field technicians carrying out installation, testing, and maintenance work.",
+    location: "Nigeria",
+    systemType: "Installation support",
+    image: "/projects/technicians-working-1.jpg",
+  },
+  {
+    title: "Commercial solar work",
+    category: "Commercial solar work",
+    description:
+      "Commercial solar and inverter solution for businesses that need dependable uptime.",
+    location: "Nigeria",
+    systemType: "Commercial solar",
+    image: "/projects/commercial-solar-1.jpg",
+  },
+  {
+    title: "Residential solar work",
+    category: "Residential solar work",
+    description:
+      "Residential solar solution for lighting, appliances, internet, and daily comfort.",
+    location: "Nigeria",
+    systemType: "Residential solar",
+    image: "/projects/residential-solar-1.jpg",
+  },
+];
+
+export const documents = [
+  {
+    title: "Certificate of Incorporation",
+    href: "/documents/certificate-of-incorporation.pdf",
+  },
+  {
+    title: "Company Profile / Brand Document",
+    href: "/documents/company-profile.pdf",
+  },
+  {
+    title: "Memorandum and Articles",
+    href: "/documents/memorandum-and-articles.pdf",
+  },
+];
+
+export const videos = [
+  {
+    title: "Solar project walkthrough",
+    src: "/videos/project-video-1.mp4",
+    description: "A field look at project work, installation details, and site activity.",
+  },
+  {
+    title: "Installation and system proof",
+    src: "/videos/project-video-2.mp4",
+    description: "Solar, inverter, and battery backup work captured for client confidence.",
+  },
 ];
 
 export const testimonials = [
   {
-    name: "Study visa applicant",
-    role: "Student traveler",
-    quote: "The document checklist and tracking code helped me stay calm and organized through the process.",
+    name: "Residential client",
+    role: "Solar and battery backup",
+    quote:
+      "The team assessed our power needs, supplied the right materials, and delivered a neat inverter and solar installation.",
   },
   {
-    name: "Family visit client",
-    role: "Visitor visa support",
-    quote: "Gifted-Faith explained what I needed clearly and helped me arrange my supporting documents.",
+    name: "Business client",
+    role: "Commercial power solution",
+    quote:
+      "P&P Advance Tech helped reduce generator use and gave our office a more reliable backup power setup.",
   },
   {
-    name: "Business traveler",
-    role: "Appointment and itinerary support",
-    quote: "The appointment and reservation support saved time and made the travel preparation smoother.",
+    name: "Security systems client",
+    role: "CCTV installation",
+    quote:
+      "Their CCTV installation and support improved visibility around our premises and the work was professionally handled.",
   },
 ];
 
-export const faqs = [
-  {
-    question: "Does Gifted-Faith guarantee visa approval?",
-    answer: "No. Visa decisions are made by embassies and immigration authorities. We help you prepare, organize, and submit stronger documentation.",
-  },
-  {
-    question: "Can I upload documents online?",
-    answer: "Yes. The Apply Now form supports PDF, JPG, JPEG, and PNG uploads up to 5MB per file.",
-  },
-  {
-    question: "How do I track my application?",
-    answer: "After submission, you receive a tracking code. Use the Track Application page to view your current status.",
-  },
-  {
-    question: "Can I get help with flights and hotels?",
-    answer: "Yes. We support flight reservations, hotel reservations, itineraries, and travel planning.",
-  },
-];
-
-export const corporateBenefits = [
-  "Visa and travel preparation support",
-  "Document organization and upload workflow",
-  "Appointment and reservation guidance",
-  "Tracked application status updates",
-];
-export const customerTypes = ["Students", "Families", "Tourists", "Business travelers", "Medical travelers"];
+export const customerTypes = ["Homes", "Offices", "Retail shops", "Schools", "Clinics", "Industrial sites"];
 export const warrantySupport = [
-  "Clear service expectations before submission",
-  "Secure local document upload handling",
-  "Tracking code provided after application submission",
-  "Status updates managed from the admin dashboard",
+  "Site inspection and load assessment",
+  "Quality solar, inverter, battery, and CCTV materials",
+  "Professional installation and commissioning",
+  "Maintenance support and system upgrades",
 ];
 export const adminReadyNotes = [
-  "Applications are saved with Prisma and SQLite.",
-  "Uploaded documents are stored through the configured UPLOAD_DIR and served from UPLOAD_PUBLIC_PATH.",
-  "Tracking, email notification hooks, and admin status updates are enabled.",
+  "Lead forms can be connected to WhatsApp, email, CRM, or an internal admin system.",
+  "Project photos should be placed in public/projects using the specified file names.",
+  "Company PDFs should be placed in public/documents for direct download links.",
 ];
+

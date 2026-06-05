@@ -1,10 +1,10 @@
 {
-  "name": "gifted-faith-global-ventures",
+  "name": "pandp-advance-tech-brands-site",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "npm run db:blog && next build",
+    "build": "next build",
     "start": "next start -p ${PORT:-3000}",
     "postinstall": "prisma generate",
     "lint": "eslint .",

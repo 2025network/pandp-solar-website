@@ -1,75 +1,141 @@
+import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
   CheckCircle2,
-  Globe2,
   MessageCircle,
+  ShieldCheck,
   Star,
 } from "lucide-react";
 import type { Metadata } from "next";
 import { PageShell } from "./components/PageShell";
 import {
   brand,
-  faqs,
-  processSteps,
+  partners,
+  projectPhotos,
   reasons,
   services,
-  supportedCountries,
+  strengthStats,
   testimonials,
   trustPoints,
+  videos,
 } from "./data";
 
 export const metadata: Metadata = {
-  title: "Visa Assistance, Travel Planning and Document Support",
+  title: "Solar, Inverter, CCTV and Smart Home Solutions",
   description:
-    "Gifted-Faith Global Ventures provides visa assistance, travel planning, appointment booking, document upload, tracking, and reservation support.",
+    "P&P ADVANCE TECH BRANDS LIMITED supplies solar inverter materials and delivers premium solar, inverter, battery backup, CCTV, and smart home technology solutions in Nigeria.",
   alternates: { canonical: "/" },
   openGraph: {
     url: "/",
-    title: "Gifted-Faith Global Ventures",
+    title: "P&P ADVANCE TECH BRANDS LIMITED",
     description:
-      "Visa assistance, travel planning, UK visa support, Canada visa assistance, study visa support, tourism travel, and business travel support in Nigeria.",
+      "CAC registered Nigerian renewable energy and smart technology company for solar, inverter, battery backup, CCTV, and automation services.",
   },
 };
 
+function PrimaryButton({ href, children }: { href: string; children: React.ReactNode }) {
+  return (
+    <Link
+      href={href}
+      className="inline-flex min-h-14 items-center justify-center gap-2 rounded-full bg-[#c1121f] px-7 py-4 text-sm font-black text-white shadow-xl shadow-red-950/15 transition hover:bg-[#8f0d17] focus-visible:focus-ring"
+    >
+      {children}
+    </Link>
+  );
+}
+
+function SectionIntro({
+  eyebrow,
+  title,
+  copy,
+  tone = "light",
+}: {
+  eyebrow: string;
+  title: string;
+  copy?: string;
+  tone?: "light" | "dark";
+}) {
+  return (
+    <div className="mx-auto max-w-3xl text-center">
+      <p className={tone === "dark" ? "text-sm font-bold uppercase tracking-[0.14em] text-red-200" : "eyebrow"}>
+        {eyebrow}
+      </p>
+      <h2 className={tone === "dark" ? "mt-4 text-4xl font-black leading-tight tracking-[-0.03em] text-white md:text-5xl lg:text-6xl" : "section-title mt-4"}>
+        {title}
+      </h2>
+      {copy ? (
+        <p className={tone === "dark" ? "mt-6 text-lg leading-8 text-emerald-50" : "section-copy mt-6"}>
+          {copy}
+        </p>
+      ) : null}
+    </div>
+  );
+}
+
 export default function Home() {
+  const whatsappMessage = encodeURIComponent(
+    `Hello ${brand.name}, I need a quote for solar, inverter, battery backup, CCTV, or smart home services.`
+  );
+
   return (
     <PageShell>
-      <section className="relative overflow-hidden bg-[#f4f8ff]">
-        <div className="absolute inset-0 bg-[linear-gradient(110deg,rgba(11,78,162,0.97)_0%,rgba(11,78,162,0.92)_52%,rgba(255,255,255,0)_52%)]" />
-        <div className="section-shell relative grid min-h-[680px] items-center gap-10 py-14 sm:py-18 lg:grid-cols-[1.03fr_0.97fr]">
-          <div className="max-w-2xl text-white">
-            <p className="inline-flex rounded bg-[#d9a441] px-3 py-1.5 text-sm font-bold text-[#102033]">
-              {brand.slogan}
+      <section className="relative isolate min-h-[760px] overflow-hidden bg-[#052f21] text-white">
+        <Image
+          src="/projects/solar-installation-1.jpg"
+          alt="Solar installation project by P&P Advance Tech"
+          fill
+          priority
+          className="object-cover"
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#052f21]/95 via-[#052f21]/76 to-[#052f21]/20" />
+        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#052f21] to-transparent" />
+
+        <div className="section-shell relative grid min-h-[760px] items-center py-24">
+          <div className="max-w-3xl">
+            <p className="inline-flex rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm font-bold text-red-100 backdrop-blur">
+              CAC Registered Company - RC {brand.rcNumber}
             </p>
-            <h1 className="mt-6 text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">
-              Professional visa and travel support from application to arrival.
+            <h1 className="mt-8 text-5xl font-black leading-[0.95] tracking-[-0.04em] sm:text-6xl lg:text-7xl">
+              Premium solar power and smart technology for serious Nigerian projects.
             </h1>
-            <p className="mt-5 max-w-xl text-base leading-8 text-blue-50 sm:text-lg">
-              Apply online, upload your documents, receive a tracking code, and follow your
-              application status while our team supports your travel preparation.
+            <p className="mt-7 max-w-2xl text-lg leading-9 text-emerald-50">
+              {brand.name} supplies solar inverter materials and delivers clean design,
+              installation, and maintenance for solar, battery backup, CCTV, and automation systems.
             </p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+              <PrimaryButton href="/contact">
+                Get Free Quote <ArrowRight size={18} aria-hidden="true" />
+              </PrimaryButton>
               <Link
-                href="/apply-now"
-                className="inline-flex items-center justify-center gap-2 rounded bg-[#d9a441] px-6 py-3.5 text-sm font-bold text-[#102033] shadow-lg shadow-blue-950/20 transition hover:bg-[#c9942f]"
+                href={`https://wa.me/${brand.whatsapp}?text=${whatsappMessage}`}
+                target="_blank"
+                className="inline-flex min-h-14 items-center justify-center gap-2 rounded-full border border-white/55 bg-white/10 px-7 py-4 text-sm font-black text-white backdrop-blur transition hover:bg-white hover:text-[#063f2a] focus-visible:focus-ring"
               >
-                Apply Now <ArrowRight size={18} aria-hidden="true" />
-              </Link>
-              <Link
-                href="/track-application"
-                className="inline-flex items-center justify-center gap-2 rounded border border-white/60 px-6 py-3.5 text-sm font-bold text-white transition hover:bg-white/10"
-              >
-                Track Application <Globe2 size={18} aria-hidden="true" />
+                WhatsApp Us <MessageCircle size={18} aria-hidden="true" />
               </Link>
             </div>
           </div>
-          <div className="rounded bg-white p-4 shadow-2xl shadow-blue-950/20 ring-1 ring-blue-100 sm:p-6">
-            <div className="aspect-[4/3] rounded bg-[url('https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=1200&q=80')] bg-cover bg-center" />
-            <div className="mt-5 grid gap-3 sm:grid-cols-3">
-              {["Secure uploads", "Tracking code", "Admin review"].map((item) => (
-                <div key={item} className="rounded border border-blue-100 bg-blue-50 p-3 text-center">
-                  <p className="text-sm font-bold text-[#073b7a]">{item}</p>
+        </div>
+      </section>
+
+      <section className="section-shell section-pad">
+        <div className="grid gap-14 lg:grid-cols-[0.92fr_1.08fr] lg:items-center">
+          <div>
+            <p className="eyebrow">Company Overview</p>
+            <h2 className="section-title mt-4">A registered renewable energy and smart technology company.</h2>
+          </div>
+          <div className="space-y-7">
+            <p className="section-copy">
+              P&P Advance Tech helps clients move from unreliable power and weak site visibility to
+              stable energy, professional backup systems, and smarter property control.
+            </p>
+            <div className="grid gap-4 sm:grid-cols-2">
+              {trustPoints.map((point) => (
+                <div key={point.label} className="rounded-3xl border border-emerald-900/10 bg-[#f4fbf6] p-6">
+                  <p className="text-2xl font-black text-[#063f2a]">{point.value}</p>
+                  <p className="mt-2 text-sm font-semibold leading-6 text-slate-600">{point.label}</p>
                 </div>
               ))}
             </div>
@@ -77,64 +143,23 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="border-y border-blue-100 bg-white py-8">
-        <div className="section-shell grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {trustPoints.map((point) => (
-            <article key={point.label} className="rounded border border-blue-100 bg-[#f4f8ff] p-5">
-              <p className="text-2xl font-bold text-[#073b7a]">{point.value}</p>
-              <p className="mt-1 text-sm font-semibold text-slate-600">{point.label}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="section-shell py-16">
-        <div className="max-w-3xl">
-          <p className="text-sm font-bold uppercase tracking-wide text-[#d9a441]">Services</p>
-          <h2 className="mt-3 text-3xl font-bold text-[#073b7a] sm:text-4xl">
-            Travel support for the details that matter.
-          </h2>
-          <p className="mt-4 text-base leading-7 text-slate-600">
-            From visa guidance to reservations and document organization, every service is built to
-            help you prepare with clarity.
-          </p>
-        </div>
-        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {services.slice(0, 6).map((service) => {
-            const Icon = service.icon;
-            return (
-              <article key={service.title} className="rounded border border-blue-100 bg-white p-6 shadow-sm">
-                <span className="grid h-12 w-12 place-items-center rounded bg-blue-50 text-[#0b4ea2]">
-                  <Icon size={24} aria-hidden="true" />
-                </span>
-                <h3 className="mt-5 text-xl font-bold text-[#102033]">{service.title}</h3>
-                <p className="mt-3 text-sm leading-6 text-slate-600">{service.description}</p>
-              </article>
-            );
-          })}
-        </div>
-      </section>
-
-      <section className="bg-[#f4f8ff] py-16">
-        <div className="section-shell grid gap-10 lg:grid-cols-[0.85fr_1.15fr]">
-          <div>
-            <p className="text-sm font-bold uppercase tracking-wide text-[#d9a441]">Why choose us</p>
-            <h2 className="mt-3 text-3xl font-bold text-[#073b7a] sm:text-4xl">
-              A trustworthy process with visible progress.
-            </h2>
-            <p className="mt-4 text-base leading-7 text-slate-600">
-              Your submission is saved, your documents are attached securely, and your tracking code
-              helps you follow updates without guessing.
-            </p>
-          </div>
-          <div className="grid gap-5 sm:grid-cols-3">
-            {reasons.map((reason) => {
-              const Icon = reason.icon;
+      <section className="bg-[#f7fbf8] section-pad">
+        <div className="section-shell">
+          <SectionIntro
+            eyebrow="Services"
+            title="Power, security and automation, handled end to end."
+            copy="We keep the homepage easy to scan while still showing the core services clients ask for most."
+          />
+          <div className="mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            {services.slice(0, 6).map((service) => {
+              const Icon = service.icon;
               return (
-                <article key={reason.title} className="rounded bg-white p-5 shadow-sm ring-1 ring-blue-100">
-                  <Icon className="text-[#d9a441]" size={30} aria-hidden="true" />
-                  <h3 className="mt-4 text-lg font-bold text-[#102033]">{reason.title}</h3>
-                  <p className="mt-2 text-sm leading-6 text-slate-600">{reason.description}</p>
+                <article key={service.title} className="premium-card p-8 transition hover:-translate-y-1 hover:shadow-2xl hover:shadow-emerald-950/10">
+                  <span className="grid h-14 w-14 place-items-center rounded-2xl bg-emerald-50 text-[#0b6b3a]">
+                    <Icon size={26} aria-hidden="true" />
+                  </span>
+                  <h3 className="mt-7 text-2xl font-black leading-tight text-[#111827]">{service.title}</h3>
+                  <p className="mt-4 text-base leading-8 text-slate-600">{service.description}</p>
                 </article>
               );
             })}
@@ -142,100 +167,163 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section-shell py-16">
-        <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
+      <section className="section-shell section-pad">
+        <div className="grid gap-14 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
           <div>
-            <p className="text-sm font-bold uppercase tracking-wide text-[#d9a441]">
-              Supported countries
+            <p className="eyebrow">Why Choose Us</p>
+            <h2 className="section-title mt-4">Clear recommendations, quality materials and accountable delivery.</h2>
+            <p className="section-copy mt-6">
+              The site now gives visitors fewer things to fight with visually, and a clearer story
+              of why the company is credible.
             </p>
-            <h2 className="mt-3 text-3xl font-bold text-[#073b7a] sm:text-4xl">
-              Destination guidance for popular travel routes.
-            </h2>
           </div>
-          <div className="grid gap-3 sm:grid-cols-2">
-            {supportedCountries.map((country) => (
-              <div key={country} className="flex items-center gap-3 rounded border border-blue-100 p-4">
-                <Globe2 className="text-[#0b4ea2]" size={22} aria-hidden="true" />
-                <span className="font-semibold text-slate-800">{country}</span>
-              </div>
-            ))}
+          <div className="grid gap-6">
+            {reasons.map((reason) => {
+              const Icon = reason.icon;
+              return (
+                <article key={reason.title} className="premium-card flex gap-5 p-7">
+                  <span className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-[#063f2a] text-white">
+                    <Icon size={24} aria-hidden="true" />
+                  </span>
+                  <div>
+                    <h3 className="text-xl font-black text-[#111827]">{reason.title}</h3>
+                    <p className="mt-2 text-base leading-7 text-slate-600">{reason.description}</p>
+                  </div>
+                </article>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      <section className="bg-[#073b7a] py-16 text-white">
+      <section className="bg-[#052f21] section-pad text-white">
         <div className="section-shell">
-          <p className="text-sm font-bold uppercase tracking-wide text-[#d9a441]">Application process</p>
-          <h2 className="mt-3 max-w-3xl text-3xl font-bold sm:text-4xl">
-            Submit once, then track every important update.
-          </h2>
-          <div className="mt-10 grid gap-4 md:grid-cols-5">
-            {processSteps.map((step, index) => (
-              <article key={step} className="rounded border border-white/20 bg-white/8 p-5">
-                <span className="grid h-10 w-10 place-items-center rounded bg-[#d9a441] font-bold text-[#102033]">
-                  {index + 1}
-                </span>
-                <h3 className="mt-4 text-base font-bold">{step}</h3>
+          <SectionIntro
+            eyebrow="Company Strength"
+            title="Capacity that gives clients confidence."
+            copy="Workforce strength and installed capacity are presented as proof points without crowding the page."
+            tone="dark"
+          />
+          <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {strengthStats.map((stat) => (
+              <article key={stat.label} className="rounded-[28px] border border-white/15 bg-white/8 p-8 backdrop-blur">
+                <p className="text-4xl font-black text-white">{stat.value}</p>
+                <p className="mt-4 text-base font-semibold leading-7 text-emerald-50">{stat.label}</p>
               </article>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="section-shell py-16">
-        <div className="grid gap-5 lg:grid-cols-3">
-          {testimonials.map((testimonial) => (
-            <article key={testimonial.name} className="rounded border border-blue-100 bg-white p-6 shadow-sm">
-              <div className="flex gap-1 text-[#d9a441]">
-                {[0, 1, 2, 3, 4].map((item) => (
-                  <Star key={item} size={18} fill="currentColor" aria-hidden="true" />
-                ))}
+      <section className="section-shell section-pad">
+        <SectionIntro
+          eyebrow="Partners"
+          title="Recognised solar and energy brands."
+          copy="Clean text badges keep the partner section credible without making the page noisy."
+        />
+        <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {partners.map((partner) => (
+            <div key={partner} className="rounded-full border border-emerald-900/10 bg-white px-6 py-5 text-center text-base font-black text-[#111827] shadow-sm">
+              {partner}
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="bg-[#f7fbf8] section-pad">
+        <div className="section-shell">
+          <div className="flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
+            <div className="max-w-3xl">
+              <p className="eyebrow">Recent Projects</p>
+              <h2 className="section-title mt-4">Real installation photos, presented with space to breathe.</h2>
+            </div>
+            <PrimaryButton href="/projects">
+              View Full Gallery <ArrowRight size={18} aria-hidden="true" />
+            </PrimaryButton>
+          </div>
+          <div className="mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            {projectPhotos.slice(0, 3).map((project) => (
+              <article key={project.title} className="group overflow-hidden rounded-[28px] bg-white shadow-xl shadow-emerald-950/5">
+                <div className="relative aspect-[4/3] overflow-hidden bg-emerald-100">
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    className="object-cover transition duration-500 group-hover:scale-105"
+                    sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                  />
+                </div>
+                <div className="p-8">
+                  <p className="eyebrow">{project.category}</p>
+                  <h3 className="mt-3 text-2xl font-black text-[#111827]">{project.title}</h3>
+                  <p className="mt-4 text-base leading-8 text-slate-600">{project.description}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section-shell section-pad">
+        <SectionIntro
+          eyebrow="Project Videos"
+          title="Video proof for clients who want to see the work."
+          copy="The two uploaded videos are displayed in a simple showcase with large viewing areas."
+        />
+        <div className="mt-16 grid gap-8 lg:grid-cols-2">
+          {videos.map((video) => (
+            <article key={video.src} className="premium-card overflow-hidden p-4">
+              <video className="aspect-video w-full rounded-[18px] bg-slate-950" controls preload="metadata">
+                <source src={video.src} type="video/mp4" />
+              </video>
+              <div className="p-5">
+                <h3 className="text-2xl font-black text-[#111827]">{video.title}</h3>
+                <p className="mt-3 text-base leading-7 text-slate-600">{video.description}</p>
               </div>
-              <p className="mt-4 text-sm leading-7 text-slate-700">&quot;{testimonial.quote}&quot;</p>
-              <p className="mt-5 font-bold text-[#073b7a]">{testimonial.name}</p>
-              <p className="text-sm text-slate-500">{testimonial.role}</p>
             </article>
           ))}
         </div>
       </section>
 
-      <section className="bg-[#f4f8ff] py-16">
-        <div className="section-shell grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
-          <div>
-            <p className="text-sm font-bold uppercase tracking-wide text-[#d9a441]">FAQ</p>
-            <h2 className="mt-3 text-3xl font-bold text-[#073b7a] sm:text-4xl">
-              Answers before you apply.
-            </h2>
-          </div>
-          <div className="grid gap-4">
-            {faqs.map((faq) => (
-              <article key={faq.question} className="rounded bg-white p-5 ring-1 ring-blue-100">
-                <h3 className="flex gap-3 text-lg font-bold text-[#102033]">
-                  <CheckCircle2 className="mt-1 shrink-0 text-[#d9a441]" size={20} aria-hidden="true" />
-                  {faq.question}
-                </h3>
-                <p className="mt-3 text-sm leading-7 text-slate-600">{faq.answer}</p>
+      <section className="bg-[#f7fbf8] section-pad">
+        <div className="section-shell">
+          <SectionIntro eyebrow="Testimonials" title="Clients want clarity, neat work and dependable support." />
+          <div className="mt-16 grid gap-8 lg:grid-cols-3">
+            {testimonials.map((testimonial) => (
+              <article key={testimonial.name} className="premium-card p-8">
+                <div className="flex gap-1 text-[#c1121f]">
+                  {[0, 1, 2, 3, 4].map((item) => (
+                    <Star key={item} size={18} fill="currentColor" aria-hidden="true" />
+                  ))}
+                </div>
+                <p className="mt-6 text-base leading-8 text-slate-700">&quot;{testimonial.quote}&quot;</p>
+                <p className="mt-7 font-black text-[#063f2a]">{testimonial.name}</p>
+                <p className="mt-1 text-sm text-slate-500">{testimonial.role}</p>
               </article>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="section-shell py-16">
-        <div className="grid items-center gap-8 rounded bg-[#fff3d8] p-6 ring-1 ring-[#f0d89c] md:grid-cols-[1fr_auto] md:p-10">
-          <div>
-            <h2 className="text-3xl font-bold text-[#073b7a]">Ready to begin?</h2>
-            <p className="mt-3 max-w-2xl text-base leading-7 text-slate-700">
-              Submit your travel request today and keep your tracking code for updates.
-            </p>
+      <section className="section-shell section-pad">
+        <div className="relative isolate overflow-hidden rounded-[34px] bg-[#063f2a] p-8 text-white md:p-14 lg:p-16">
+          <div className="absolute right-0 top-0 h-52 w-52 rounded-full bg-[#c1121f]/20 blur-3xl" />
+          <div className="relative grid gap-10 lg:grid-cols-[1fr_auto] lg:items-center">
+            <div>
+              <p className="flex items-center gap-2 text-sm font-bold uppercase tracking-wide text-red-200">
+                <ShieldCheck size={18} aria-hidden="true" /> Registered and ready
+              </p>
+              <h2 className="mt-4 max-w-3xl text-4xl font-black leading-tight tracking-[-0.03em] md:text-5xl">
+                Request a site inspection or materials quote.
+              </h2>
+              <p className="mt-5 max-w-2xl text-lg leading-8 text-emerald-50">
+                Tell us your location, power needs, security requirements, or automation goals.
+              </p>
+            </div>
+            <PrimaryButton href="/contact">
+              Contact P&P <ArrowRight size={18} aria-hidden="true" />
+            </PrimaryButton>
           </div>
-          <Link
-            href={`https://wa.me/${brand.whatsapp}`}
-            target="_blank"
-            className="inline-flex items-center justify-center gap-2 rounded bg-[#0b4ea2] px-6 py-3.5 text-sm font-bold text-white transition hover:bg-[#073b7a]"
-          >
-            WhatsApp Us <MessageCircle size={18} aria-hidden="true" />
-          </Link>
         </div>
       </section>
     </PageShell>

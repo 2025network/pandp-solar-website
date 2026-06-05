@@ -7,11 +7,11 @@ import { seoKeywords, siteUrl } from "@/lib/seo";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Gifted-Faith Global Ventures",
-    template: "%s | Gifted-Faith Global Ventures",
+    default: "P&P ADVANCE TECH BRANDS LIMITED",
+    template: "%s | P&P ADVANCE TECH BRANDS LIMITED",
   },
   description:
-    "Professional travel, visa assistance, appointment booking, itinerary planning, reservations, document upload, and application tracking support.",
+    "P&P ADVANCE TECH BRANDS LIMITED supplies solar inverter materials and provides solar, inverter, battery backup, CCTV, and smart home technology solutions in Nigeria.",
   keywords: seoKeywords,
   alternates: {
     canonical: "/",
@@ -20,24 +20,24 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_NG",
     url: siteUrl,
-    siteName: "Gifted-Faith Global Ventures",
-    title: "Gifted-Faith Global Ventures",
+    siteName: "P&P ADVANCE TECH BRANDS LIMITED",
+    title: "P&P ADVANCE TECH BRANDS LIMITED",
     description:
-      "Visa assistance, study visa support, tourism travel planning, business travel support, reservations, and document support in Nigeria.",
+      "CAC registered Nigerian renewable energy and smart technology company for solar, inverter, battery backup, CCTV, and automation projects.",
     images: [
       {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Gifted-Faith Global Ventures travel and visa support",
+        alt: "P&P Advance Tech solar, inverter, CCTV, and smart technology services",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Gifted-Faith Global Ventures",
+    title: "P&P ADVANCE TECH BRANDS LIMITED",
     description:
-      "Professional visa assistance, travel planning, and document support in Nigeria.",
+      "Solar inverter materials, solar installation, battery backup, CCTV, and smart home automation in Nigeria.",
     images: ["/og-image.jpg"],
   },
   robots: {
@@ -53,14 +53,13 @@ export const metadata: Metadata = {
   },
 };
 
-const travelAgencyJsonLd = {
+const localBusinessJsonLd = {
   "@context": "https://schema.org",
-  "@type": "TravelAgency",
+  "@type": "LocalBusiness",
   name: brand.name,
   url: siteUrl,
   slogan: brand.slogan,
-  description:
-    "Travel agency in Nigeria offering visa assistance, UK visa support, Canada visa assistance, study visa support, tourism travel planning, business travel support, reservations, and document support.",
+  description: brand.tagline,
   telephone: brand.phone,
   email: brand.email,
   address: {
@@ -68,15 +67,14 @@ const travelAgencyJsonLd = {
     streetAddress: brand.address,
     addressCountry: "NG",
   },
-  areaServed: ["Nigeria", "United Kingdom", "Canada", "United States", "Schengen Area"],
+  areaServed: "Nigeria",
   serviceType: [
-    "Visa assistance",
-    "UK visa assistance",
-    "Canada visa assistance",
-    "Study visa support",
-    "Tourism travel planning",
-    "Business travel support",
-    "Document support",
+    "Solar inverter materials",
+    "Solar inverter system installation",
+    "CCTV installation",
+    "Smart home automation",
+    "Battery backup systems",
+    "Solar panel installation",
   ],
 };
 
@@ -90,7 +88,7 @@ export default function RootLayout({
       <body>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(travelAgencyJsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
         />
         {children}
         <GoogleAnalytics gaId="G-DWB66M7D0C" />

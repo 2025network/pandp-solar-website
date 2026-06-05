@@ -1,73 +1,70 @@
 import Link from "next/link";
-import { Mail, MapPin, MessageCircle, Phone } from "lucide-react";
+import { Mail, MapPin, MessageCircle, Phone, ShieldCheck } from "lucide-react";
 import type { Metadata } from "next";
+import { ContactLeadForm } from "../components/ContactLeadForm";
 import { PageShell } from "../components/PageShell";
 import { brand } from "../data";
 
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Contact Gifted-Faith Global Ventures for visa assistance, travel planning, reservations, appointment booking, document support, and application inquiries.",
+    "Contact P&P ADVANCE TECH BRANDS LIMITED for solar inverter materials, installation, battery backup, CCTV, and smart home technology services.",
   alternates: { canonical: "/contact" },
   openGraph: {
     url: "/contact",
-    title: "Contact Gifted-Faith Global Ventures",
+    title: "Contact P&P ADVANCE TECH BRANDS LIMITED",
     description:
-      "Contact our travel agency in Nigeria for visa assistance, study visa support, tourism travel, and business travel support.",
+      "Request a quote for solar, inverter, battery backup, CCTV/security, and smart automation services.",
   },
 };
 
 export default function ContactPage() {
   const message = encodeURIComponent(
-    `Hello ${brand.name}, I would like to make an inquiry about your travel services.`
+    `Hello ${brand.name}, I would like to request a quote for your solar, inverter, battery, CCTV, or smart technology services.`
   );
 
   return (
     <PageShell>
-      <section className="bg-[#073b7a] py-14 text-white sm:py-16">
+      <section className="bg-[#063f2a] py-28 text-white">
         <div className="section-shell max-w-4xl">
-          <p className="text-sm font-bold uppercase tracking-wide text-[#d9a441]">Contact</p>
-          <h1 className="mt-3 text-4xl font-bold leading-tight sm:text-5xl">
-            Let us help with your next trip.
+          <p className="text-sm font-bold uppercase tracking-[0.14em] text-red-200">Contact</p>
+          <h1 className="mt-5 text-5xl font-black leading-[0.98] tracking-[-0.04em] sm:text-6xl">
+            Request a quote or technical consultation.
           </h1>
-          <p className="mt-5 text-lg leading-8 text-blue-100">
-            Reach out for visa assistance, appointments, document organization, reservations, and
-            travel planning.
+          <p className="mt-7 max-w-2xl text-lg leading-9 text-emerald-50">
+            Reach out for solar inverter materials, system design, installation, maintenance,
+            battery backup, CCTV/security, and smart home automation.
           </p>
         </div>
       </section>
 
-      <section className="section-shell grid gap-8 py-16 lg:grid-cols-[0.9fr_1.1fr]">
-        <div className="grid gap-4">
+      <section className="section-shell grid gap-10 py-24 lg:grid-cols-[0.82fr_1.18fr]">
+        <div className="grid content-start gap-5">
           {[
             { icon: Phone, title: "Phone", value: brand.phone },
             { icon: Mail, title: "Email", value: brand.email },
             { icon: MapPin, title: "Office", value: brand.address },
+            { icon: ShieldCheck, title: "CAC Registration", value: `RC Number: ${brand.rcNumber}` },
           ].map((item) => {
             const Icon = item.icon;
             return (
-              <div key={item.title} className="rounded border border-blue-100 bg-white p-5">
-                <Icon className="text-[#0b4ea2]" size={26} aria-hidden="true" />
-                <h2 className="mt-4 text-xl font-bold text-[#102033]">{item.title}</h2>
-                <p className="mt-2 text-slate-600">{item.value}</p>
+              <div key={item.title} className="premium-card p-6">
+                <Icon className="text-[#0b6b3a]" size={26} aria-hidden="true" />
+                <h2 className="mt-5 text-xl font-black text-[#111827]">{item.title}</h2>
+                <p className="mt-2 leading-7 text-slate-600">{item.value}</p>
               </div>
             );
           })}
-        </div>
-        <div className="rounded bg-[#f4f8ff] p-6 ring-1 ring-blue-100 md:p-8">
-          <h2 className="text-3xl font-bold text-[#073b7a]">Send a quick WhatsApp message.</h2>
-          <p className="mt-4 leading-7 text-slate-700">
-            Use WhatsApp for inquiries about services, requirements, uploaded documents, tracking,
-            or appointment support.
-          </p>
           <Link
             href={`https://wa.me/${brand.whatsapp}?text=${message}`}
             target="_blank"
-            className="mt-7 inline-flex items-center gap-2 rounded bg-[#0b4ea2] px-6 py-3 text-sm font-bold text-white transition hover:bg-[#073b7a]"
+            className="inline-flex min-h-14 items-center justify-center gap-2 rounded-full bg-[#25d366] px-7 py-4 text-sm font-black text-white transition hover:brightness-95"
           >
             Chat on WhatsApp <MessageCircle size={18} aria-hidden="true" />
           </Link>
         </div>
+
+        <ContactLeadForm />
       </section>
     </PageShell>
   );
