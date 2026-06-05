@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 80" role="img" aria-label="P&P Advance Tech Brands Limited">
+  <rect width="240" height="80" rx="22" fill="#063f2a"/>
+  <rect x="18" y="18" width="44" height="44" rx="12" fill="#ffffff"/>
+  <path d="M28 48h24l-4 8H24l4-8Z" fill="#063f2a"/>
+  <path d="M33 25h24L48 43H24l9-18Z" fill="#0b6b3a"/>
+  <circle cx="58" cy="22" r="5" fill="#c1121f"/>
+  <text x="76" y="36" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="800">P&amp;P ADVANCE TECH</text>
+  <text x="77" y="56" fill="#d9f3e1" font-family="Arial, Helvetica, sans-serif" font-size="10" font-weight="700" letter-spacing="1.6">SOLAR • CCTV • SMART TECH</text>
+</svg>

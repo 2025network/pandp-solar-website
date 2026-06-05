@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowRight, MapPin, Settings2, Video } from "lucide-react";
 import type { Metadata } from "next";
 import { PageShell } from "../components/PageShell";
+import { TrackedWhatsAppLink } from "../components/TrackedWhatsAppLink";
 import { brand, projectPhotos, videos } from "../data";
 
 export const metadata: Metadata = {
@@ -15,6 +16,11 @@ export const metadata: Metadata = {
     title: "Projects | P&P ADVANCE TECH BRANDS LIMITED",
     description:
       "Professional project gallery for solar, inverter, battery backup, CCTV, and smart technology work in Nigeria.",
+    images: ["/og-image.png"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: ["/og-image.png"],
   },
 };
 
@@ -146,13 +152,13 @@ export default function ProjectsPage() {
                 supply, installation, or maintenance process.
               </p>
             </div>
-            <Link
+            <TrackedWhatsAppLink
               href={`https://wa.me/${brand.whatsapp}?text=${message}`}
-              target="_blank"
+              location="projects_cta"
               className="inline-flex min-h-14 items-center justify-center gap-2 rounded-full bg-[#c1121f] px-7 py-4 text-sm font-black text-white transition hover:bg-[#8f0d17]"
             >
               WhatsApp for Quote <ArrowRight size={18} aria-hidden="true" />
-            </Link>
+            </TrackedWhatsAppLink>
           </div>
         </div>
       </section>

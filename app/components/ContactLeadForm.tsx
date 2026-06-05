@@ -3,6 +3,7 @@
 import { FormEvent, useState } from "react";
 import { MessageCircle } from "lucide-react";
 import { brand, services } from "../data";
+import { trackWhatsAppClick } from "./TrackedWhatsAppLink";
 
 const fieldClass =
   "min-h-14 rounded-2xl border border-emerald-900/15 bg-white px-5 py-4 text-[#111827] outline-none focus-visible:focus-ring";
@@ -35,6 +36,7 @@ Service needed: ${form.service}
 Message: ${form.message}`
     );
 
+    trackWhatsAppClick("contact_form_submit");
     window.open(`https://wa.me/${brand.whatsapp}?text=${text}`, "_blank", "noopener,noreferrer");
   }
 

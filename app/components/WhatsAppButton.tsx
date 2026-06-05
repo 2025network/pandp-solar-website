@@ -1,5 +1,6 @@
 import { MessageCircle } from "lucide-react";
 import { brand } from "../data";
+import { TrackedWhatsAppLink } from "./TrackedWhatsAppLink";
 
 export function WhatsAppButton() {
   const message = encodeURIComponent(
@@ -7,14 +8,13 @@ export function WhatsAppButton() {
   );
 
   return (
-    <a
+    <TrackedWhatsAppLink
       href={`https://wa.me/${brand.whatsapp}?text=${message}`}
-      target="_blank"
-      rel="noreferrer"
       aria-label="Chat with us on WhatsApp"
+      location="floating_button"
       className="fixed bottom-5 right-5 z-50 grid h-14 w-14 place-items-center rounded-full bg-[#25d366] text-white shadow-xl transition hover:scale-105 focus-visible:focus-ring"
     >
       <MessageCircle size={28} aria-hidden="true" />
-    </a>
+    </TrackedWhatsAppLink>
   );
 }

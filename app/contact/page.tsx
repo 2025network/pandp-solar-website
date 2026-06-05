@@ -1,8 +1,8 @@
-import Link from "next/link";
 import { Mail, MapPin, MessageCircle, Phone, ShieldCheck } from "lucide-react";
 import type { Metadata } from "next";
 import { ContactLeadForm } from "../components/ContactLeadForm";
 import { PageShell } from "../components/PageShell";
+import { TrackedWhatsAppLink } from "../components/TrackedWhatsAppLink";
 import { brand } from "../data";
 
 export const metadata: Metadata = {
@@ -15,6 +15,11 @@ export const metadata: Metadata = {
     title: "Contact P&P ADVANCE TECH BRANDS LIMITED",
     description:
       "Request a quote for solar, inverter, battery backup, CCTV/security, and smart automation services.",
+    images: ["/og-image.png"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: ["/og-image.png"],
   },
 };
 
@@ -55,16 +60,36 @@ export default function ContactPage() {
               </div>
             );
           })}
-          <Link
+          <TrackedWhatsAppLink
             href={`https://wa.me/${brand.whatsapp}?text=${message}`}
-            target="_blank"
+            location="contact_direct"
             className="inline-flex min-h-14 items-center justify-center gap-2 rounded-full bg-[#25d366] px-7 py-4 text-sm font-black text-white transition hover:brightness-95"
           >
             Chat on WhatsApp <MessageCircle size={18} aria-hidden="true" />
-          </Link>
+          </TrackedWhatsAppLink>
         </div>
 
         <ContactLeadForm />
+      </section>
+
+      <section className="bg-[#f7fbf8] py-20">
+        <div className="section-shell">
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="eyebrow">Find our office</p>
+            <h2 className="section-title mt-4">Visit P&P Advance Tech.</h2>
+            <p className="section-copy mt-6">{brand.address}</p>
+          </div>
+          <div className="mt-12 overflow-hidden rounded-[30px] border border-emerald-900/10 bg-white shadow-xl shadow-emerald-950/5">
+            <iframe
+              allowFullScreen
+              className="h-[420px] w-full"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              src={`https://www.google.com/maps?q=${encodeURIComponent(brand.address)}&output=embed`}
+              title="P&P Advance Tech office location on Google Maps"
+            />
+          </div>
+        </div>
       </section>
     </PageShell>
   );

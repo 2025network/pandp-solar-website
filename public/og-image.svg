@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#052f21"/>
+      <stop offset="62%" stop-color="#063f2a"/>
+      <stop offset="100%" stop-color="#0b6b3a"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="0" x2="1">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#d9f3e1"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="1010" cy="105" r="78" fill="#c1121f" opacity="0.92"/>
+  <circle cx="1040" cy="138" r="132" fill="#c1121f" opacity="0.12"/>
+  <path d="M670 165h350L875 448H525l145-283Z" fill="url(#panel)" opacity="0.96"/>
+  <path d="M717 208h72L675 416h-72l114-208Zm96 0h72L771 416h-72l114-208Zm96 0h72L867 416h-72l114-208Z" fill="#0b6b3a" opacity="0.9"/>
+  <rect x="86" y="78" width="92" height="92" rx="24" fill="#ffffff"/>
+  <path d="M109 139h50l-8 17h-51l9-17Z" fill="#063f2a"/>
+  <path d="M119 99h52l-20 39H99l20-39Z" fill="#0b6b3a"/>
+  <circle cx="171" cy="94" r="13" fill="#c1121f"/>
+  <text x="86" y="233" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="800" letter-spacing="1.5">P&amp;P ADVANCE TECH BRANDS LIMITED</text>
+  <text x="86" y="330" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="66" font-weight="900">Solar, Inverter, CCTV</text>
+  <text x="86" y="404" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="66" font-weight="900">&amp; Smart Technology</text>
+  <text x="90" y="482" fill="#d9f3e1" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="700">CAC Registered • RC 9558604 • Nigeria</text>
+  <rect x="88" y="524" width="292" height="52" rx="26" fill="#c1121f"/>
+  <text x="124" y="559" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="800">Request a solar quote</text>
+</svg>

@@ -9,6 +9,7 @@ import {
 } from "lucide-react";
 import type { Metadata } from "next";
 import { PageShell } from "./components/PageShell";
+import { TrackedWhatsAppLink } from "./components/TrackedWhatsAppLink";
 import {
   brand,
   partners,
@@ -31,6 +32,11 @@ export const metadata: Metadata = {
     title: "P&P ADVANCE TECH BRANDS LIMITED",
     description:
       "CAC registered Nigerian renewable energy and smart technology company for solar, inverter, battery backup, CCTV, and automation services.",
+    images: ["/og-image.png"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: ["/og-image.png"],
   },
 };
 
@@ -108,13 +114,13 @@ export default function Home() {
               <PrimaryButton href="/contact">
                 Get Free Quote <ArrowRight size={18} aria-hidden="true" />
               </PrimaryButton>
-              <Link
+              <TrackedWhatsAppLink
                 href={`https://wa.me/${brand.whatsapp}?text=${whatsappMessage}`}
-                target="_blank"
+                location="home_hero"
                 className="inline-flex min-h-14 items-center justify-center gap-2 rounded-full border border-white/55 bg-white/10 px-7 py-4 text-sm font-black text-white backdrop-blur transition hover:bg-white hover:text-[#063f2a] focus-visible:focus-ring"
               >
                 WhatsApp Us <MessageCircle size={18} aria-hidden="true" />
-              </Link>
+              </TrackedWhatsAppLink>
             </div>
           </div>
         </div>
