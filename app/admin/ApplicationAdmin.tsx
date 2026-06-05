@@ -14,6 +14,7 @@ type Application = {
   travelPurpose: string;
   message: string;
   status: string;
+  adminNotes: string | null;
   trackingCode: string;
   passportUploadPath: string | null;
   passportPhotoPath: string | null;
@@ -77,6 +78,13 @@ export function ApplicationAdmin({ applications }: { applications: Application[]
   const router = useRouter();
   const [deletingId, setDeletingId] = useState<number | null>(null);
   const [updatingId, setUpdatingId] = useState<number | null>(null);
+  const [savingNotesId, setSavingNotesId] = useState<number | null>(null);
+  const [notesById, setNotesById] = useState<Record<number, string>>(() =>
+    Object.fromEntries(
+      applications.map((application) => [application.id, application.adminNotes ?? ""])
+    )
+  );
+  const [notifyNotesById, setNotifyNotesById] = useState<Record<number, boolean>>({});
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
 
@@ -220,6 +228,89 @@ export function ApplicationAdmin({ applications }: { applications: Application[]
     }
   }
 
+  async function updateNotes(id: number) {
+    setSavingNotesId(id);
+    setError("");
+    setSuccess("");
+
+    try {
+      const response = await fetch(`/api/applications/${id}/notes`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          adminNotes: notesById[id] ?? "",
+          notifyApplicant: Boolean(notifyNotesById[id]),
+        }),
+      });
+
+      if (!response.ok) {
+        const data = await response.json();
+        throw new Error(data.error ?? "Unable to update admin notes.");
+      }
+
+      const data = await response.json();
+      setSuccess(
+        data.notificationEmailSent
+          ? "Admin notes saved and applicant email sent."
+          : "Admin notes saved."
+      );
+      setNotifyNotesById((currentValues) => ({
+        ...currentValues,
+        [id]: false,
+      }));
+      router.refresh();
+    } catch (notesError) {
+      setError(notesError instanceof Error ? notesError.message : "Unable to update admin notes.");
+    } finally {
+      setSavingNotesId(null);
+    }
+  }
+
+  function renderAdminNotes(application: Application) {
+    return (
+      <div className="mt-4 rounded bg-[#f4f8ff] p-3 ring-1 ring-blue-100">
+        <label className="grid gap-2 text-xs font-bold uppercase tracking-wide text-[#073b7a]">
+          Admin notes
+          <textarea
+            value={notesById[application.id] ?? ""}
+            onChange={(event) =>
+              setNotesById((currentValues) => ({
+                ...currentValues,
+                [application.id]: event.target.value,
+              }))
+            }
+            className="min-h-24 w-full resize-y rounded border border-blue-100 bg-white px-3 py-2 text-sm font-normal normal-case tracking-normal text-slate-800 outline-none transition focus:border-[#0b4ea2] focus:ring-4 focus:ring-blue-100"
+            placeholder="Write the latest note for this applicant..."
+            maxLength={5000}
+          />
+        </label>
+        <label className="mt-3 flex items-center gap-2 text-xs font-semibold text-slate-700">
+          <input
+            type="checkbox"
+            checked={Boolean(notifyNotesById[application.id])}
+            onChange={(event) =>
+              setNotifyNotesById((currentValues) => ({
+                ...currentValues,
+                [application.id]: event.target.checked,
+              }))
+            }
+          />
+          Email applicant about this note
+        </label>
+        <button
+          type="button"
+          onClick={() => updateNotes(application.id)}
+          disabled={savingNotesId === application.id}
+          className="mt-3 rounded bg-[#073b7a] px-3 py-2 text-xs font-bold text-white transition hover:bg-[#0b4ea2] disabled:cursor-not-allowed disabled:bg-slate-400"
+        >
+          {savingNotesId === application.id ? "Saving notes..." : "Save notes"}
+        </button>
+      </div>
+    );
+  }
+
   if (applications.length === 0) {
     return (
       <div className="grid gap-5">
@@ -291,6 +382,7 @@ export function ApplicationAdmin({ applications }: { applications: Application[]
                   <p className="font-bold text-slate-900">{application.fullName}</p>
                   <p className="mt-1 max-w-xs text-slate-600">{application.message}</p>
                   {renderDocumentLinks(application)}
+                  {renderAdminNotes(application)}
                 </td>
                 <td className="px-4 py-4">
                   <p className="font-bold tracking-wide text-[#073b7a]">{application.trackingCode}</p>
@@ -394,6 +486,10 @@ export function ApplicationAdmin({ applications }: { applications: Application[]
               <div>
                 <dt className="font-bold text-slate-700">Uploaded documents</dt>
                 <dd>{renderDocumentLinks(application)}</dd>
+              </div>
+              <div>
+                <dt className="font-bold text-slate-700">Admin notes</dt>
+                <dd>{renderAdminNotes(application)}</dd>
               </div>
             </dl>
           </article>

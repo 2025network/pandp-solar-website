@@ -16,6 +16,7 @@ model Application {
   travelPurpose      String
   message            String
   status             String   @default("Pending")
+  adminNotes         String?  @db.Text
   trackingCode       String   @unique
   passportUploadPath String?
   passportPhotoPath  String?

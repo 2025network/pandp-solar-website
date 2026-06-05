@@ -8,6 +8,7 @@ type TrackedApplication = {
   destinationCountry: string;
   travelPurpose: string;
   status: string;
+  adminNotes: string | null;
   createdAt: string;
 };
 
@@ -145,6 +146,16 @@ export function TrackApplicationForm({ initialCode = "" }: { initialCode?: strin
               <dd className="mt-1 font-semibold text-[#073b7a]">{application.status}</dd>
             </div>
           </dl>
+          {application.adminNotes ? (
+            <div className="mt-6 rounded bg-blue-50 p-4 ring-1 ring-blue-100">
+              <h3 className="text-sm font-bold uppercase tracking-wide text-[#073b7a]">
+                Latest admin note
+              </h3>
+              <p className="mt-2 whitespace-pre-wrap text-sm leading-7 text-slate-700">
+                {application.adminNotes}
+              </p>
+            </div>
+          ) : null}
         </article>
       ) : null}
     </div>

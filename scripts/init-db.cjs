@@ -13,6 +13,7 @@ async function main() {
       \`travelPurpose\` VARCHAR(191) NOT NULL,
       \`message\` TEXT NOT NULL,
       \`status\` VARCHAR(191) NOT NULL DEFAULT 'Pending',
+      \`adminNotes\` TEXT NULL,
       \`trackingCode\` VARCHAR(191) NOT NULL,
       \`passportUploadPath\` VARCHAR(191) NULL,
       \`passportPhotoPath\` VARCHAR(191) NULL,
@@ -39,6 +40,16 @@ async function main() {
       PRIMARY KEY (\`id\`)
     ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
   `);
+
+  const adminNotesColumn = await prisma.$queryRawUnsafe(
+    "SHOW COLUMNS FROM `Application` LIKE 'adminNotes';"
+  );
+
+  if (adminNotesColumn.length === 0) {
+    await prisma.$executeRawUnsafe(
+      "ALTER TABLE `Application` ADD COLUMN `adminNotes` TEXT NULL;"
+    );
+  }
 }
 
 main()

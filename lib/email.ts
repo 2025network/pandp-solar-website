@@ -17,6 +17,13 @@ type StatusEmailPayload = {
   trackingUrl?: string;
 };
 
+type AdminNoteEmailPayload = {
+  fullName: string;
+  email: string;
+  trackingCode: string;
+  adminNotes: string;
+};
+
 const defaultSiteUrl = "https://giftedfaithglobal.com";
 
 function getSmtpConfig() {
@@ -250,6 +257,62 @@ export async function sendStatusChangeEmail(application: StatusEmailPayload) {
       `Status notification email failed for ${application.trackingCode}:`,
       error
     );
+    return false;
+  }
+}
+
+export async function sendAdminNoteEmail(application: AdminNoteEmailPayload) {
+  const mailer = createTransporter();
+
+  if (!mailer) {
+    console.warn(
+      `Admin note email not sent for ${application.trackingCode}: SMTP is not configured.`
+    );
+    return false;
+  }
+
+  const trackingUrl = getTrackingUrl(application.trackingCode);
+  const safeApplication = {
+    fullName: escapeHtml(application.fullName),
+    trackingCode: escapeHtml(application.trackingCode),
+    adminNotes: escapeHtml(application.adminNotes),
+    trackingUrl: escapeHtml(trackingUrl),
+  };
+
+  try {
+    await mailer.transporter.sendMail({
+      from: mailer.from,
+      to: application.email,
+      subject: `New note on your application - ${application.trackingCode}`,
+      text: [
+        `Dear ${application.fullName},`,
+        "",
+        "A new note has been added to your application.",
+        "",
+        `Tracking code: ${application.trackingCode}`,
+        `Admin note: ${application.adminNotes}`,
+        `Track your application: ${trackingUrl}`,
+        "",
+        "Gifted-Faith Global Ventures",
+      ].join("\n"),
+      html: `
+        <div style="font-family: Arial, sans-serif; color: #102033; line-height: 1.6;">
+          <h2 style="color: #073b7a;">Application note update</h2>
+          <p>Dear ${safeApplication.fullName},</p>
+          <p>A new note has been added to your application.</p>
+          <table style="border-collapse: collapse; width: 100%; max-width: 560px;">
+            <tr><td><strong>Tracking code</strong></td><td>${safeApplication.trackingCode}</td></tr>
+            <tr><td><strong>Admin note</strong></td><td>${safeApplication.adminNotes}</td></tr>
+          </table>
+          <p><a href="${safeApplication.trackingUrl}" style="color: #0b4ea2; font-weight: bold;">Track your application</a></p>
+          <p>Gifted-Faith Global Ventures</p>
+        </div>
+      `,
+    });
+
+    return true;
+  } catch (error) {
+    console.warn(`Admin note email failed for ${application.trackingCode}:`, error);
     return false;
   }
 }

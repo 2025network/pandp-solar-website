@@ -19,6 +19,7 @@ export async function GET(request: Request) {
         destinationCountry: true,
         travelPurpose: true,
         status: true,
+        adminNotes: true,
         createdAt: true,
       },
     });
