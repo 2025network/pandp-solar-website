@@ -15,11 +15,29 @@ const fileFields = [
   { name: "supportingDocument", label: "Additional Supporting Document" },
 ] as const;
 
+const initialFormValues = {
+  fullName: "",
+  phone: "",
+  email: "",
+  destinationCountry: "",
+  travelPurpose: "",
+  message: "",
+};
+
 export function ApplyForm() {
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [notice, setNotice] = useState("");
   const [trackingCode, setTrackingCode] = useState("");
   const [uploadProgress, setUploadProgress] = useState(0);
+  const [formValues, setFormValues] = useState(initialFormValues);
+  const [fileInputKey, setFileInputKey] = useState(0);
+
+  function updateField(field: keyof typeof initialFormValues, value: string) {
+    setFormValues((currentValues) => ({
+      ...currentValues,
+      [field]: value,
+    }));
+  }
 
   function validateFiles(formData: FormData) {
     for (const field of fileFields) {
@@ -87,7 +105,8 @@ export function ApplyForm() {
     try {
       const data = await submitApplication(formData);
 
-      event.currentTarget.reset();
+      setFormValues(initialFormValues);
+      setFileInputKey((currentKey) => currentKey + 1);
       setStatus("success");
       setUploadProgress(100);
       setTrackingCode(data.application.trackingCode);
@@ -112,16 +131,40 @@ export function ApplyForm() {
       <div className="grid gap-4 md:grid-cols-2">
         <label className="grid gap-2 text-sm font-semibold text-slate-700">
           Full name
-          <input className={inputClass} name="fullName" type="text" placeholder="Your full name" required />
+          <input
+            className={inputClass}
+            name="fullName"
+            type="text"
+            placeholder="Your full name"
+            value={formValues.fullName}
+            onChange={(event) => updateField("fullName", event.target.value)}
+            required
+          />
         </label>
         <label className="grid gap-2 text-sm font-semibold text-slate-700">
           Phone number
-          <input className={inputClass} name="phone" type="tel" placeholder="+234 000 000 0000" required />
+          <input
+            className={inputClass}
+            name="phone"
+            type="tel"
+            placeholder="+234 000 000 0000"
+            value={formValues.phone}
+            onChange={(event) => updateField("phone", event.target.value)}
+            required
+          />
         </label>
       </div>
       <label className="grid gap-2 text-sm font-semibold text-slate-700">
         Email
-        <input className={inputClass} name="email" type="email" placeholder="you@example.com" required />
+        <input
+          className={inputClass}
+          name="email"
+          type="email"
+          placeholder="you@example.com"
+          value={formValues.email}
+          onChange={(event) => updateField("email", event.target.value)}
+          required
+        />
       </label>
       <div className="grid gap-4 md:grid-cols-2">
         <label className="grid gap-2 text-sm font-semibold text-slate-700">
@@ -131,12 +174,20 @@ export function ApplyForm() {
             name="destinationCountry"
             type="text"
             placeholder="United Kingdom"
+            value={formValues.destinationCountry}
+            onChange={(event) => updateField("destinationCountry", event.target.value)}
             required
           />
         </label>
         <label className="grid gap-2 text-sm font-semibold text-slate-700">
           Travel purpose
-          <select className={inputClass} name="travelPurpose" defaultValue="" required>
+          <select
+            className={inputClass}
+            name="travelPurpose"
+            value={formValues.travelPurpose}
+            onChange={(event) => updateField("travelPurpose", event.target.value)}
+            required
+          >
             <option value="" disabled>
               Select purpose
             </option>
@@ -155,6 +206,8 @@ export function ApplyForm() {
           className={`${inputClass} min-h-36 resize-y`}
           name="message"
           placeholder="Tell us about your travel plans or the support you need."
+          value={formValues.message}
+          onChange={(event) => updateField("message", event.target.value)}
           required
         />
       </label>
@@ -173,6 +226,7 @@ export function ApplyForm() {
             <label key={field.name} className="grid gap-2 text-sm font-semibold text-slate-700">
               {field.label}
               <input
+                key={`${field.name}-${fileInputKey}`}
                 className={fileClass}
                 name={field.name}
                 type="file"
