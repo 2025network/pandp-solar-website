@@ -7,7 +7,7 @@ CREATE TABLE IF NOT EXISTS `BlogPost` (
   `featuredImage` VARCHAR(191) NOT NULL,
   `published` BOOLEAN NOT NULL DEFAULT false,
   `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
-  `updatedAt` DATETIME(3) NOT NULL,
+  `updatedAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
   UNIQUE INDEX `BlogPost_slug_key`(`slug`),
   PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;

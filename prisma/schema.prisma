@@ -50,5 +50,5 @@ model BlogPost {
   featuredImage String
   published     Boolean  @default(false)
   createdAt     DateTime @default(now())
-  updatedAt     DateTime @updatedAt
+  updatedAt     DateTime @default(now()) @updatedAt
 }
