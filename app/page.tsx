@@ -24,6 +24,13 @@ export const metadata: Metadata = {
   title: "Visa Assistance, Travel Planning and Document Support",
   description:
     "Gifted-Faith Global Ventures provides visa assistance, travel planning, appointment booking, document upload, tracking, and reservation support.",
+  alternates: { canonical: "/" },
+  openGraph: {
+    url: "/",
+    title: "Gifted-Faith Global Ventures",
+    description:
+      "Visa assistance, travel planning, UK visa support, Canada visa assistance, study visa support, tourism travel, and business travel support in Nigeria.",
+  },
 };
 
 export default function Home() {

@@ -6,6 +6,13 @@ export const metadata: Metadata = {
   title: "Apply Now",
   description:
     "Submit your Gifted-Faith Global Ventures travel or visa support application with optional document uploads and tracking code generation.",
+  alternates: { canonical: "/apply-now" },
+  openGraph: {
+    url: "/apply-now",
+    title: "Apply Now for Visa and Travel Support",
+    description:
+      "Submit a visa assistance or travel support application with document upload and tracking code.",
+  },
 };
 
 export default function ApplyNowPage() {

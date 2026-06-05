@@ -1,20 +1,81 @@
 import type { Metadata } from "next";
+import { brand } from "./data";
 import "./globals.css";
+import { seoKeywords, siteUrl } from "@/lib/seo";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: {
     default: "Gifted-Faith Global Ventures",
     template: "%s | Gifted-Faith Global Ventures",
   },
   description:
     "Professional travel, visa assistance, appointment booking, itinerary planning, reservations, document upload, and application tracking support.",
-  keywords: [
-    "visa assistance",
-    "travel agency",
-    "UK visa support",
+  keywords: seoKeywords,
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_NG",
+    url: siteUrl,
+    siteName: "Gifted-Faith Global Ventures",
+    title: "Gifted-Faith Global Ventures",
+    description:
+      "Visa assistance, study visa support, tourism travel planning, business travel support, reservations, and document support in Nigeria.",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Gifted-Faith Global Ventures travel and visa support",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Gifted-Faith Global Ventures",
+    description:
+      "Professional visa assistance, travel planning, and document support in Nigeria.",
+    images: ["/og-image.jpg"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+};
+
+const travelAgencyJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "TravelAgency",
+  name: brand.name,
+  url: siteUrl,
+  slogan: brand.slogan,
+  description:
+    "Travel agency in Nigeria offering visa assistance, UK visa support, Canada visa assistance, study visa support, tourism travel planning, business travel support, reservations, and document support.",
+  telephone: brand.phone,
+  email: brand.email,
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: brand.address,
+    addressCountry: "NG",
+  },
+  areaServed: ["Nigeria", "United Kingdom", "Canada", "United States", "Schengen Area"],
+  serviceType: [
+    "Visa assistance",
+    "UK visa assistance",
     "Canada visa assistance",
-    "USA appointment",
-    "travel planning",
+    "Study visa support",
+    "Tourism travel planning",
+    "Business travel support",
+    "Document support",
   ],
 };
 
@@ -25,7 +86,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(travelAgencyJsonLd) }}
+        />
+        {children}
+      </body>
     </html>
   );
 }

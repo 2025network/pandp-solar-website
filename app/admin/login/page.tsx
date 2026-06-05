@@ -9,6 +9,10 @@ export const dynamic = "force-dynamic";
 export const metadata: Metadata = {
   title: "Admin Login",
   description: "Secure admin login for Gifted-Faith Global Ventures application management.",
+  robots: {
+    index: false,
+    follow: false,
+  },
 };
 
 export default async function AdminLoginPage() {

@@ -8,6 +8,13 @@ export const metadata: Metadata = {
   title: "Contact",
   description:
     "Contact Gifted-Faith Global Ventures for visa assistance, travel planning, reservations, appointment booking, document support, and application inquiries.",
+  alternates: { canonical: "/contact" },
+  openGraph: {
+    url: "/contact",
+    title: "Contact Gifted-Faith Global Ventures",
+    description:
+      "Contact our travel agency in Nigeria for visa assistance, study visa support, tourism travel, and business travel support.",
+  },
 };
 
 export default function ContactPage() {

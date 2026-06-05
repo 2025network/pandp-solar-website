@@ -8,6 +8,13 @@ export const metadata: Metadata = {
   title: "About",
   description:
     "Learn about Gifted-Faith Global Ventures, a professional travel, visa assistance, booking, and document support company.",
+  alternates: { canonical: "/about" },
+  openGraph: {
+    url: "/about",
+    title: "About Gifted-Faith Global Ventures",
+    description:
+      "Professional travel agency and visa assistance support company in Nigeria.",
+  },
 };
 
 export default function AboutPage() {

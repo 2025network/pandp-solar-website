@@ -8,6 +8,13 @@ export const metadata: Metadata = {
   title: "Services",
   description:
     "Explore Gifted-Faith Global Ventures visa assistance, appointment booking, travel planning, reservation, passport renewal, and document support services.",
+  alternates: { canonical: "/services" },
+  openGraph: {
+    url: "/services",
+    title: "Visa and Travel Services",
+    description:
+      "UK visa assistance, Canada visa assistance, study visa support, tourism travel planning, business travel support, and document support.",
+  },
 };
 
 export default function ServicesPage() {

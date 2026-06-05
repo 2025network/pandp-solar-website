@@ -12,6 +12,10 @@ export const metadata: Metadata = {
   title: "Admin Dashboard",
   description:
     "Protected Gifted-Faith Global Ventures admin dashboard for reviewing applications, documents, tracking codes, and status updates.",
+  robots: {
+    index: false,
+    follow: false,
+  },
 };
 
 export default async function AdminPage() {

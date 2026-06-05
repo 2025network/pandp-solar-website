@@ -5,6 +5,13 @@ export const metadata = {
   title: "Track Application",
   description:
     "Track your Gifted-Faith Global Ventures visa and travel application using your tracking code.",
+  alternates: { canonical: "/track-application" },
+  openGraph: {
+    url: "/track-application",
+    title: "Track Your Application",
+    description:
+      "Use your Gifted-Faith Global Ventures tracking code to view your visa or travel application status.",
+  },
 };
 
 export default async function TrackApplicationPage({
