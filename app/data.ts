@@ -249,9 +249,4 @@ export const warrantySupport = [
   "Professional installation and commissioning",
   "Maintenance support and system upgrades",
 ];
-export const adminReadyNotes = [
-  "Lead forms can be connected to WhatsApp, email, CRM, or an internal admin system.",
-  "Project photos should be placed in public/projects using the specified file names.",
-  "Company PDFs should be placed in public/documents for direct download links.",
-];
 
