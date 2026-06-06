@@ -42,7 +42,7 @@ Message: ${form.message}`
 
   return (
     <form onSubmit={handleSubmit} className="rounded-[30px] bg-[#f4fbf6] p-7 ring-1 ring-emerald-900/10 md:p-10">
-      <h2 className="text-4xl font-black leading-tight tracking-[-0.03em] text-[#063f2a]">Send your project request.</h2>
+      <h2 className="text-4xl font-black leading-tight text-[#063f2a]">Send your project request.</h2>
       <p className="mt-5 text-base leading-8 text-slate-700">
         Submit the form and WhatsApp will open with your details ready to send to our team.
       </p>

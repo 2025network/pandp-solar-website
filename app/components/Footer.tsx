@@ -1,5 +1,6 @@
+import Image from "next/image";
 import Link from "next/link";
-import { Mail, MapPin, Phone, ShieldCheck, Zap } from "lucide-react";
+import { Mail, MapPin, Phone, ShieldCheck } from "lucide-react";
 import { brand, navItems, partners } from "../data";
 
 export function Footer() {
@@ -8,8 +9,8 @@ export function Footer() {
       <div className="section-shell grid gap-12 py-20 md:grid-cols-[1.25fr_0.7fr_0.9fr]">
         <div>
           <div className="flex items-center gap-3">
-            <span className="grid h-12 w-12 place-items-center rounded-2xl bg-white text-[#0b6b3a]">
-              <Zap size={22} aria-hidden="true" />
+            <span className="grid h-12 w-12 place-items-center rounded-2xl bg-white p-2">
+              <Image src="/brand-mark.svg" alt="" width={32} height={32} aria-hidden="true" />
             </span>
             <h2 className="text-xl font-black">{brand.name}</h2>
           </div>

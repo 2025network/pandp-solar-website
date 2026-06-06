@@ -1,8 +1,9 @@
+import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
 import type { Metadata } from "next";
 import { PageShell } from "../components/PageShell";
-import { customerTypes, services, warrantySupport } from "../data";
+import { customerTypes, processSteps, services, warrantySupport } from "../data";
 
 export const metadata: Metadata = {
   title: "Services",
@@ -25,16 +26,47 @@ export const metadata: Metadata = {
 export default function ServicesPage() {
   return (
     <PageShell>
-      <section className="bg-[#063f2a] py-28 text-white">
-        <div className="section-shell max-w-4xl">
-          <p className="text-sm font-bold uppercase tracking-[0.14em] text-red-200">Our services</p>
-          <h1 className="mt-5 text-5xl font-black leading-[0.98] tracking-[-0.04em] sm:text-6xl">
-            Solar, inverter, battery, CCTV and smart home technology services.
-          </h1>
-          <p className="mt-7 max-w-2xl text-lg leading-9 text-emerald-50">
-            We support material supply, technical design, professional installation, maintenance,
-            and upgrades for homes, businesses, and industrial facilities.
-          </p>
+      <section className="bg-[#063f2a] py-20 text-white md:py-28">
+        <div className="section-shell grid gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
+          <div className="max-w-4xl">
+            <p className="text-sm font-bold uppercase tracking-[0.14em] text-red-200">Our services</p>
+            <h1 className="mt-5 text-4xl font-black leading-[1] sm:text-6xl">
+              Solar, inverter, battery, CCTV and smart home technology services.
+            </h1>
+            <p className="mt-7 max-w-2xl text-lg leading-9 text-emerald-50">
+              We support material supply, technical design, professional installation, maintenance,
+              and upgrades for homes, businesses, and industrial facilities.
+            </p>
+          </div>
+          <div className="grid gap-4 sm:grid-cols-2">
+            <div className="relative min-h-[260px] overflow-hidden rounded-[26px] bg-emerald-100 sm:min-h-[360px]">
+              <Image
+                src="/projects/solar-installation-2.jpg"
+                alt="Solar panel service installation"
+                fill
+                priority
+                className="object-cover"
+                sizes="(min-width: 1024px) 28vw, 100vw"
+              />
+            </div>
+            <div className="grid gap-4">
+              <div className="relative min-h-[170px] overflow-hidden rounded-[26px] bg-emerald-100">
+                <Image
+                  src="/projects/inverter-installation-1.jpg"
+                  alt="Inverter service installation"
+                  fill
+                  className="object-cover"
+                  sizes="(min-width: 1024px) 24vw, 100vw"
+                />
+              </div>
+              <div className="rounded-[26px] border border-white/15 bg-white/10 p-6 backdrop-blur">
+                <p className="text-3xl font-black">End to end</p>
+                <p className="mt-3 text-sm font-semibold leading-6 text-emerald-50">
+                  Materials, design, installation, maintenance, and upgrades from one technical team.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -78,25 +110,44 @@ export default function ServicesPage() {
       </section>
 
       <section className="section-shell section-pad">
-        <div className="rounded-[34px] bg-[#063f2a] p-8 text-white md:p-14">
-          <h2 className="max-w-3xl text-4xl font-black leading-tight tracking-[-0.03em] md:text-5xl">Need a complete technical solution?</h2>
-          <p className="mt-5 max-w-3xl text-lg leading-8 text-emerald-50">
-            We can combine solar panels, inverter systems, battery backup, CCTV, and smart
-            automation into one planned solution with proper installation and maintenance support.
-          </p>
-          <div className="mt-10 grid gap-4 sm:grid-cols-2">
-            {warrantySupport.map((item) => (
-              <p key={item} className="rounded-3xl border border-white/15 bg-white/8 p-5 text-sm font-bold leading-6">
-                {item}
-              </p>
-            ))}
+        <div className="grid overflow-hidden rounded-[30px] bg-[#063f2a] text-white lg:grid-cols-[0.95fr_1.05fr]">
+          <div className="relative min-h-[360px]">
+            <Image
+              src="/projects/battery-backup-1.jpg"
+              alt="Battery backup and inverter solution"
+              fill
+              className="object-cover"
+              sizes="(min-width: 1024px) 48vw, 100vw"
+            />
           </div>
-          <Link
-            href="/contact"
-            className="mt-10 inline-flex min-h-14 items-center gap-2 rounded-full bg-[#c1121f] px-7 py-4 text-sm font-black text-white transition hover:bg-[#8f0d17]"
-          >
-            Request Quote <ArrowRight size={18} aria-hidden="true" />
-          </Link>
+          <div className="p-8 md:p-14">
+            <h2 className="max-w-3xl text-4xl font-black leading-tight md:text-5xl">Need a complete technical solution?</h2>
+            <p className="mt-5 max-w-3xl text-lg leading-8 text-emerald-50">
+              We can combine solar panels, inverter systems, battery backup, CCTV, and smart
+              automation into one planned solution with proper installation and maintenance support.
+            </p>
+            <div className="mt-8 grid gap-3">
+              {processSteps.map((item) => (
+                <p key={item} className="flex items-center gap-3 text-sm font-bold text-white">
+                  <CheckCircle2 className="shrink-0 text-red-200" size={18} aria-hidden="true" />
+                  {item}
+                </p>
+              ))}
+            </div>
+            <div className="mt-10 grid gap-4 sm:grid-cols-2">
+              {warrantySupport.map((item) => (
+                <p key={item} className="rounded-2xl border border-white/15 bg-white/8 p-5 text-sm font-bold leading-6">
+                  {item}
+                </p>
+              ))}
+            </div>
+            <Link
+              href="/contact"
+              className="mt-10 inline-flex min-h-14 items-center gap-2 rounded-full bg-[#c1121f] px-7 py-4 text-sm font-black text-white transition hover:bg-[#8f0d17]"
+            >
+              Request Quote <ArrowRight size={18} aria-hidden="true" />
+            </Link>
+          </div>
         </div>
       </section>
     </PageShell>

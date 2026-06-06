@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Mail, MapPin, MessageCircle, Phone, ShieldCheck } from "lucide-react";
 import type { Metadata } from "next";
 import { ContactLeadForm } from "../components/ContactLeadForm";
@@ -30,16 +31,33 @@ export default function ContactPage() {
 
   return (
     <PageShell>
-      <section className="bg-[#063f2a] py-28 text-white">
-        <div className="section-shell max-w-4xl">
-          <p className="text-sm font-bold uppercase tracking-[0.14em] text-red-200">Contact</p>
-          <h1 className="mt-5 text-5xl font-black leading-[0.98] tracking-[-0.04em] sm:text-6xl">
-            Request a quote or technical consultation.
-          </h1>
-          <p className="mt-7 max-w-2xl text-lg leading-9 text-emerald-50">
-            Reach out for solar inverter materials, system design, installation, maintenance,
-            battery backup, CCTV/security, and smart home automation.
-          </p>
+      <section className="bg-[#063f2a] py-20 text-white md:py-28">
+        <div className="section-shell grid gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
+          <div className="max-w-4xl">
+            <p className="text-sm font-bold uppercase tracking-[0.14em] text-red-200">Contact</p>
+            <h1 className="mt-5 text-4xl font-black leading-[1] sm:text-6xl">
+              Request a quote or technical consultation.
+            </h1>
+            <p className="mt-7 max-w-2xl text-lg leading-9 text-emerald-50">
+              Reach out for solar inverter materials, system design, installation, maintenance,
+              battery backup, CCTV/security, and smart home automation.
+            </p>
+          </div>
+          <div className="relative min-h-[300px] overflow-hidden rounded-[30px] bg-emerald-100 shadow-2xl shadow-black/20 md:min-h-[420px]">
+            <Image
+              src="/projects/technicians-working-1.jpg"
+              alt="P&P Advance Tech technicians on a project site"
+              fill
+              priority
+              className="object-cover"
+              sizes="(min-width: 1024px) 48vw, 100vw"
+            />
+            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/75 to-transparent p-6">
+              <p className="max-w-md text-sm font-bold leading-6 text-white">
+                Send your location, load needs, security requirements, or smart technology goals.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 

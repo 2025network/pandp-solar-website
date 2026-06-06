@@ -9,7 +9,7 @@ import {
 } from "lucide-react";
 import type { Metadata } from "next";
 import { PageShell } from "../components/PageShell";
-import { brand, documents, projectPhotos, reasons, strengthStats, trustPoints } from "../data";
+import { brand, documents, processSteps, projectPhotos, reasons, strengthStats, trustPoints } from "../data";
 
 export const metadata: Metadata = {
   title: "About",
@@ -36,7 +36,7 @@ export default function AboutPage() {
         <div className="grid gap-14 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
           <div>
             <p className="eyebrow">About P&P</p>
-            <h1 className="mt-5 text-5xl font-black leading-[0.98] tracking-[-0.04em] text-[#063f2a] sm:text-6xl">
+            <h1 className="mt-5 text-4xl font-black leading-[1] text-[#063f2a] sm:text-6xl">
               Registered renewable energy and smart technology specialists.
             </h1>
             <p className="section-copy mt-7">
@@ -80,8 +80,8 @@ export default function AboutPage() {
             <p className="eyebrow">Certificate</p>
             <h2 className="section-title mt-4">Company registration information.</h2>
             <p className="section-copy mt-6">
-              The registration details are presented early so prospects can verify the business
-              before requesting a site visit or quote.
+              Prospects can verify the company identity before requesting a site visit, material
+              quote, or technical support.
             </p>
           </div>
           <div className="premium-card p-8 md:p-10">
@@ -121,12 +121,20 @@ export default function AboutPage() {
           <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
             <div>
               <p className="text-sm font-bold uppercase tracking-[0.14em] text-red-200">Work Gallery</p>
-              <h2 className="mt-4 text-4xl font-black leading-tight tracking-[-0.03em] md:text-5xl">
+              <h2 className="mt-4 text-4xl font-black leading-tight md:text-5xl">
                 Visible proof of installation work.
               </h2>
               <p className="mt-6 text-lg leading-8 text-emerald-50">
-                A small gallery gives the About page credibility without overwhelming the visitor.
+                Real project photos show the solar, inverter, and battery work behind the company profile.
               </p>
+              <div className="mt-8 grid gap-3">
+                {processSteps.slice(0, 3).map((step) => (
+                  <p key={step} className="flex items-center gap-3 text-sm font-bold text-white">
+                    <CheckCircle2 className="shrink-0 text-red-200" size={18} aria-hidden="true" />
+                    {step}
+                  </p>
+                ))}
+              </div>
             </div>
             <div className="grid gap-5 sm:grid-cols-2">
               {projectPhotos.slice(0, 4).map((project) => (

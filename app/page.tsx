@@ -15,6 +15,7 @@ import {
   partners,
   projectPhotos,
   reasons,
+  processSteps,
   services,
   strengthStats,
   testimonials,
@@ -67,7 +68,7 @@ function SectionIntro({
       <p className={tone === "dark" ? "text-sm font-bold uppercase tracking-[0.14em] text-red-200" : "eyebrow"}>
         {eyebrow}
       </p>
-      <h2 className={tone === "dark" ? "mt-4 text-4xl font-black leading-tight tracking-[-0.03em] text-white md:text-5xl lg:text-6xl" : "section-title mt-4"}>
+      <h2 className={tone === "dark" ? "mt-4 text-4xl font-black leading-tight text-white md:text-5xl lg:text-6xl" : "section-title mt-4"}>
         {title}
       </h2>
       {copy ? (
@@ -86,7 +87,7 @@ export default function Home() {
 
   return (
     <PageShell>
-      <section className="relative isolate min-h-[760px] overflow-hidden bg-[#052f21] text-white">
+      <section className="relative isolate overflow-hidden bg-[#052f21] text-white">
         <Image
           src="/projects/solar-installation-1.jpg"
           alt="Solar installation project by P&P Advance Tech"
@@ -95,21 +96,29 @@ export default function Home() {
           className="object-cover"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#052f21]/95 via-[#052f21]/76 to-[#052f21]/20" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#052f21]/96 via-[#052f21]/78 to-[#052f21]/30" />
         <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#052f21] to-transparent" />
 
-        <div className="section-shell relative grid min-h-[760px] items-center py-24">
+        <div className="section-shell relative grid min-h-[760px] items-center gap-12 py-20 lg:grid-cols-[1fr_420px] lg:py-24">
           <div className="max-w-3xl">
             <p className="inline-flex rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm font-bold text-red-100 backdrop-blur">
               CAC Registered Company - RC {brand.rcNumber}
             </p>
-            <h1 className="mt-8 text-5xl font-black leading-[0.95] tracking-[-0.04em] sm:text-6xl lg:text-7xl">
-              Premium solar power and smart technology for serious Nigerian projects.
+            <h1 className="mt-8 text-4xl font-black leading-[0.98] text-white sm:text-6xl lg:text-7xl">
+              Solar power, inverter backup, CCTV and smart technology for Nigerian properties.
             </h1>
             <p className="mt-7 max-w-2xl text-lg leading-9 text-emerald-50">
               {brand.name} supplies solar inverter materials and delivers clean design,
               installation, and maintenance for solar, battery backup, CCTV, and automation systems.
             </p>
+            <div className="mt-8 grid max-w-2xl gap-3 sm:grid-cols-2">
+              {["Solar installation", "Inverters and batteries", "CCTV security", "Smart automation"].map((item) => (
+                <p key={item} className="flex items-center gap-3 text-sm font-bold text-white">
+                  <CheckCircle2 className="shrink-0 text-red-200" size={19} aria-hidden="true" />
+                  {item}
+                </p>
+              ))}
+            </div>
             <div className="mt-10 flex flex-col gap-4 sm:flex-row">
               <PrimaryButton href="/contact">
                 Get Free Quote <ArrowRight size={18} aria-hidden="true" />
@@ -121,6 +130,25 @@ export default function Home() {
               >
                 WhatsApp Us <MessageCircle size={18} aria-hidden="true" />
               </TrackedWhatsAppLink>
+            </div>
+          </div>
+          <div className="hidden rounded-[30px] border border-white/15 bg-white/10 p-4 shadow-2xl shadow-black/20 backdrop-blur lg:block">
+            <div className="relative aspect-[4/5] overflow-hidden rounded-[22px] bg-emerald-100">
+              <Image
+                src="/projects/inverter-installation-1.jpg"
+                alt="Installed inverter and solar backup equipment"
+                fill
+                className="object-cover"
+                sizes="420px"
+              />
+            </div>
+            <div className="grid grid-cols-3 gap-3 pt-4">
+              {strengthStats.slice(1).map((stat) => (
+                <div key={stat.label} className="rounded-2xl bg-white p-4 text-[#063f2a]">
+                  <p className="text-xl font-black">{stat.value}</p>
+                  <p className="mt-1 text-xs font-bold leading-4 text-slate-600">{stat.label}</p>
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -154,7 +182,7 @@ export default function Home() {
           <SectionIntro
             eyebrow="Services"
             title="Power, security and automation, handled end to end."
-            copy="We keep the homepage easy to scan while still showing the core services clients ask for most."
+            copy="From material supply to installation and maintenance, the service range is built around dependable power, safer premises, and smarter control."
           />
           <div className="mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {services.slice(0, 6).map((service) => {
@@ -179,8 +207,8 @@ export default function Home() {
             <p className="eyebrow">Why Choose Us</p>
             <h2 className="section-title mt-4">Clear recommendations, quality materials and accountable delivery.</h2>
             <p className="section-copy mt-6">
-              The site now gives visitors fewer things to fight with visually, and a clearer story
-              of why the company is credible.
+              Clients get practical guidance, correctly sized systems, careful installation, and support
+              that keeps the equipment useful after handover.
             </p>
           </div>
           <div className="grid gap-6">
@@ -207,7 +235,7 @@ export default function Home() {
           <SectionIntro
             eyebrow="Company Strength"
             title="Capacity that gives clients confidence."
-            copy="Workforce strength and installed capacity are presented as proof points without crowding the page."
+            copy="A growing technical team and real installed capacity help clients trust the company with serious residential, commercial, and industrial work."
             tone="dark"
           />
           <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -241,7 +269,7 @@ export default function Home() {
           <div className="flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
             <div className="max-w-3xl">
               <p className="eyebrow">Recent Projects</p>
-              <h2 className="section-title mt-4">Real installation photos, presented with space to breathe.</h2>
+              <h2 className="section-title mt-4">Real solar, inverter and battery project photos.</h2>
             </div>
             <PrimaryButton href="/projects">
               View Full Gallery <ArrowRight size={18} aria-hidden="true" />
@@ -271,11 +299,11 @@ export default function Home() {
       </section>
 
       <section className="section-shell section-pad">
-        <SectionIntro
-          eyebrow="Project Videos"
-          title="Video proof for clients who want to see the work."
-          copy="The two uploaded videos are displayed in a simple showcase with large viewing areas."
-        />
+          <SectionIntro
+            eyebrow="Project Videos"
+            title="Video proof for clients who want to see the work."
+            copy="Project videos give prospects a closer look at the workmanship, equipment, and field activity behind the finished systems."
+          />
         <div className="mt-16 grid gap-8 lg:grid-cols-2">
           {videos.map((video) => (
             <article key={video.src} className="premium-card overflow-hidden p-4">
@@ -312,23 +340,41 @@ export default function Home() {
       </section>
 
       <section className="section-shell section-pad">
-        <div className="relative isolate overflow-hidden rounded-[34px] bg-[#063f2a] p-8 text-white md:p-14 lg:p-16">
-          <div className="absolute right-0 top-0 h-52 w-52 rounded-full bg-[#c1121f]/20 blur-3xl" />
-          <div className="relative grid gap-10 lg:grid-cols-[1fr_auto] lg:items-center">
+        <div className="grid overflow-hidden rounded-[30px] bg-[#063f2a] text-white lg:grid-cols-[1.05fr_0.95fr]">
+          <div className="p-8 md:p-14 lg:p-16">
             <div>
               <p className="flex items-center gap-2 text-sm font-bold uppercase tracking-wide text-red-200">
                 <ShieldCheck size={18} aria-hidden="true" /> Registered and ready
               </p>
-              <h2 className="mt-4 max-w-3xl text-4xl font-black leading-tight tracking-[-0.03em] md:text-5xl">
+              <h2 className="mt-4 max-w-3xl text-4xl font-black leading-tight md:text-5xl">
                 Request a site inspection or materials quote.
               </h2>
               <p className="mt-5 max-w-2xl text-lg leading-8 text-emerald-50">
                 Tell us your location, power needs, security requirements, or automation goals.
               </p>
+              <div className="mt-8 grid gap-3">
+                {processSteps.map((step) => (
+                  <p key={step} className="flex items-center gap-3 text-sm font-bold text-white">
+                    <CheckCircle2 className="shrink-0 text-red-200" size={18} aria-hidden="true" />
+                    {step}
+                  </p>
+                ))}
+              </div>
+              <div className="mt-10">
+                <PrimaryButton href="/contact">
+                  Contact P&P <ArrowRight size={18} aria-hidden="true" />
+                </PrimaryButton>
+              </div>
             </div>
-            <PrimaryButton href="/contact">
-              Contact P&P <ArrowRight size={18} aria-hidden="true" />
-            </PrimaryButton>
+          </div>
+          <div className="relative min-h-[320px]">
+            <Image
+              src="/projects/battery-backup-1.jpg"
+              alt="Battery backup installation"
+              fill
+              className="object-cover"
+              sizes="(min-width: 1024px) 48vw, 100vw"
+            />
           </div>
         </div>
       </section>

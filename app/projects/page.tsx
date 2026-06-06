@@ -38,12 +38,12 @@ function GalleryIntro() {
       <div className="absolute inset-0 bg-[#052f21]/82" />
       <div className="section-shell relative max-w-4xl">
         <p className="text-sm font-bold uppercase tracking-[0.14em] text-red-200">Projects</p>
-        <h1 className="mt-5 text-5xl font-black leading-[0.98] tracking-[-0.04em] sm:text-6xl">
-          A cleaner gallery for solar, inverter, battery and field work.
+        <h1 className="mt-5 text-4xl font-black leading-[1] sm:text-6xl">
+          Solar, inverter, battery and field work gallery.
         </h1>
         <p className="mt-7 max-w-2xl text-lg leading-9 text-emerald-50">
-          All seven project images are displayed with generous spacing, simple project details, and
-          clear quote actions.
+          Browse real project photos and videos from installation, commissioning, backup power, and
+          technical support work.
         </p>
       </div>
     </section>
@@ -83,7 +83,7 @@ export default function ProjectsPage() {
               </div>
               <div className="grid gap-8 p-8 lg:grid-cols-[1fr_auto] lg:items-end">
                 <div>
-                  <h2 className="text-3xl font-black leading-tight tracking-[-0.02em] text-[#111827]">
+                  <h2 className="text-3xl font-black leading-tight text-[#111827]">
                     {project.title}
                   </h2>
                   <p className="mt-4 max-w-2xl text-base leading-8 text-slate-600">
@@ -118,10 +118,10 @@ export default function ProjectsPage() {
             <p className="eyebrow inline-flex items-center gap-2">
               <Video size={18} aria-hidden="true" /> Videos
             </p>
-            <h2 className="section-title mt-4">Project videos with a larger showcase.</h2>
+            <h2 className="section-title mt-4">Project videos from field work.</h2>
             <p className="section-copy mt-6">
-              The two uploaded MP4 files are presented here and on the homepage for quick proof of
-              field work.
+              Watch site clips that show installation activity, equipment handling, and practical
+              project progress.
             </p>
           </div>
           <div className="mt-16 grid gap-8 lg:grid-cols-2">
@@ -144,7 +144,7 @@ export default function ProjectsPage() {
         <div className="rounded-[34px] bg-[#063f2a] p-8 text-white md:p-14 lg:p-16">
           <div className="grid gap-10 lg:grid-cols-[1fr_auto] lg:items-center">
             <div>
-              <h2 className="max-w-3xl text-4xl font-black leading-tight tracking-[-0.03em] md:text-5xl">
+              <h2 className="max-w-3xl text-4xl font-black leading-tight md:text-5xl">
                 Want a similar project for your home or business?
               </h2>
               <p className="mt-5 max-w-2xl text-lg leading-8 text-emerald-50">

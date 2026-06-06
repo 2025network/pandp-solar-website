@@ -37,13 +37,13 @@ export const navItems = [
 
 export const services = [
   {
-    title: "Sales of solar inverter materials",
+    title: "Solar inverter materials",
     description:
       "Supply of quality solar panels, inverters, batteries, charge controllers, breakers, cables, and accessories for reliable power systems.",
     icon: PlugZap,
   },
   {
-    title: "Solar inverter system design, installation and maintenance",
+    title: "Solar inverter systems",
     description:
       "Complete load assessment, system design, installation, testing, handover, maintenance, and performance support.",
     icon: SlidersHorizontal,
@@ -113,6 +113,13 @@ export const reasons = [
       "We supply materials, design systems, install professionally, maintain assets, and advise clients clearly.",
     icon: ClipboardCheck,
   },
+];
+
+export const processSteps = [
+  "Site inspection and load assessment",
+  "Clear material recommendation and quote",
+  "Neat installation, testing, and handover",
+  "Maintenance support and system upgrades",
 ];
 
 export const partners = [
