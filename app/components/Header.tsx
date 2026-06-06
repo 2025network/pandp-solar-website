@@ -7,12 +7,17 @@ export function Header() {
   return (
     <header className="sticky top-0 z-40 border-b border-emerald-950/10 bg-white/90 backdrop-blur-xl">
       <div className="section-shell flex min-h-24 items-center justify-between gap-6 py-4">
-        <Link href="/" className="flex items-center gap-3">
-          <span className="grid h-12 w-12 place-items-center rounded-2xl bg-[#063f2a] p-2 shadow-lg shadow-emerald-950/15">
-            <Image src="/brand-mark.svg" alt="" width={32} height={32} aria-hidden="true" />
-          </span>
-          <span className="max-w-[220px]">
-            <span className="block text-sm font-black leading-tight text-[#111827] sm:text-base">
+        <Link href="/" className="flex min-w-0 items-center gap-3">
+          <Image
+            src="/solar-logo.png"
+            alt="P&P Advance Tech logo"
+            width={90}
+            height={60}
+            priority
+            className="h-11 w-auto shrink-0 object-contain sm:h-[50px] lg:h-[58px]"
+          />
+          <span className="min-w-0 max-w-[230px]">
+            <span className="block text-sm font-black leading-tight text-[#111827] sm:text-base lg:text-[1.05rem]">
               {brand.name}
             </span>
             <span className="block text-xs font-bold text-[#c1121f]">RC {brand.rcNumber}</span>

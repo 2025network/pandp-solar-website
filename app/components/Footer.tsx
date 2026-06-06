@@ -9,9 +9,13 @@ export function Footer() {
       <div className="section-shell grid gap-12 py-20 md:grid-cols-[1.25fr_0.7fr_0.9fr]">
         <div>
           <div className="flex items-center gap-3">
-            <span className="grid h-12 w-12 place-items-center rounded-2xl bg-white p-2">
-              <Image src="/brand-mark.svg" alt="" width={32} height={32} aria-hidden="true" />
-            </span>
+            <Image
+              src="/solar-logo.png"
+              alt="P&P Advance Tech logo"
+              width={84}
+              height={56}
+              className="h-12 w-auto shrink-0 rounded-xl bg-white object-contain p-1"
+            />
             <h2 className="text-xl font-black">{brand.name}</h2>
           </div>
           <p className="mt-5 max-w-xl text-base leading-7 text-emerald-50">{brand.slogan}</p>

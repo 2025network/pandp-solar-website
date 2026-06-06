@@ -16,11 +16,11 @@ export const metadata: Metadata = {
     title: "Projects | P&P ADVANCE TECH BRANDS LIMITED",
     description:
       "Professional project gallery for solar, inverter, battery backup, CCTV, and smart technology work in Nigeria.",
-    images: ["/og-image.png"],
+    images: ["/solar-logo.png"],
   },
   twitter: {
     card: "summary_large_image",
-    images: ["/og-image.png"],
+    images: ["/solar-logo.png"],
   },
 };
 

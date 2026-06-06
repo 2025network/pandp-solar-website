@@ -15,11 +15,11 @@ export const metadata: Metadata = {
     title: "Solar, Inverter, CCTV and Smart Technology Services",
     description:
       "Sales, design, installation, and maintenance for solar inverter systems, CCTV/security, battery backup, solar panels, and automation.",
-    images: ["/og-image.png"],
+    images: ["/solar-logo.png"],
   },
   twitter: {
     card: "summary_large_image",
-    images: ["/og-image.png"],
+    images: ["/solar-logo.png"],
   },
 };
 

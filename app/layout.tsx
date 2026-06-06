@@ -5,10 +5,10 @@ import "./globals.css";
 import { seoKeywords, siteUrl } from "@/lib/seo";
 
 const ogImage = {
-  url: "/og-image.png",
-  width: 1200,
-  height: 630,
-  alt: "P&P Advance Tech solar, inverter, CCTV, and smart technology services",
+  url: "/solar-logo.png",
+  width: 1536,
+  height: 1024,
+  alt: "P&P ADVANCE TECH BRANDS LIMITED company logo",
 };
 
 export const metadata: Metadata = {
@@ -24,7 +24,8 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   icons: {
-    icon: "/favicon.svg",
+    icon: [{ url: "/solar-logo.png", type: "image/png" }],
+    apple: [{ url: "/solar-logo.png", type: "image/png" }],
   },
   openGraph: {
     type: "website",
@@ -45,7 +46,7 @@ export const metadata: Metadata = {
     title: "P&P ADVANCE TECH BRANDS LIMITED",
     description:
       "Solar inverter materials, solar installation, battery backup, CCTV, and smart home automation in Nigeria.",
-    images: ["/og-image.png"],
+    images: ["/solar-logo.png"],
   },
   robots: {
     index: true,
@@ -66,8 +67,8 @@ const localBusinessJsonLd = {
   name: brand.name,
   legalName: brand.name,
   url: siteUrl,
-  logo: `${siteUrl}/brand-mark.svg`,
-  image: `${siteUrl}/og-image.png`,
+  logo: `${siteUrl}/solar-logo.png`,
+  image: `${siteUrl}/solar-logo.png`,
   slogan: brand.slogan,
   description: brand.tagline,
   telephone: [brand.primaryPhone, "09041189484"],

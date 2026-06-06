@@ -16,11 +16,11 @@ export const metadata: Metadata = {
     title: "Contact P&P ADVANCE TECH BRANDS LIMITED",
     description:
       "Request a quote for solar, inverter, battery backup, CCTV/security, and smart automation services.",
-    images: ["/og-image.png"],
+    images: ["/solar-logo.png"],
   },
   twitter: {
     card: "summary_large_image",
-    images: ["/og-image.png"],
+    images: ["/solar-logo.png"],
   },
 };
 

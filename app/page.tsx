@@ -33,11 +33,11 @@ export const metadata: Metadata = {
     title: "P&P ADVANCE TECH BRANDS LIMITED",
     description:
       "CAC registered Nigerian renewable energy and smart technology company for solar, inverter, battery backup, CCTV, and automation services.",
-    images: ["/og-image.png"],
+    images: ["/solar-logo.png"],
   },
   twitter: {
     card: "summary_large_image",
-    images: ["/og-image.png"],
+    images: ["/solar-logo.png"],
   },
 };
 
