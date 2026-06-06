@@ -6,19 +6,19 @@ import { brand, navItems } from "../data";
 export function Header() {
   return (
     <header className="sticky top-0 z-40 border-b border-emerald-950/10 bg-white/90 backdrop-blur-xl">
-      <div className="section-shell flex min-h-[94px] items-center justify-between gap-4 py-3 sm:min-h-[112px] lg:grid lg:min-h-[132px] lg:grid-cols-[minmax(520px,1fr)_auto_minmax(170px,1fr)] lg:gap-6">
-        <Link href="/" className="flex min-w-0 items-center gap-2 sm:gap-3 lg:gap-4">
+      <div className="section-shell flex min-h-[76px] items-center justify-between gap-4 py-2 sm:min-h-[84px] lg:grid lg:min-h-[90px] lg:grid-cols-[minmax(330px,1fr)_auto_minmax(170px,1fr)] lg:gap-6">
+        <Link href="/" className="flex min-w-0 items-center gap-2.5">
           <Image
             src="/solar-logo.png"
             alt="P&P Advance Tech Brands Limited logo"
-            width={260}
-            height={130}
+            width={90}
+            height={45}
             priority
             unoptimized
-            className="h-16 w-[150px] shrink-0 object-contain sm:h-20 sm:w-[190px] lg:h-24 lg:w-[260px]"
+            className="h-9 max-h-9 w-[70px] max-w-[70px] shrink-0 object-contain lg:h-[45px] lg:max-h-[45px] lg:w-[90px] lg:max-w-[90px]"
           />
-          <span className="min-w-0 max-w-[165px] sm:max-w-[260px] lg:max-w-[315px]">
-            <span className="block text-sm font-black leading-tight text-[#111827] sm:text-base lg:text-xl">
+          <span className="min-w-0 max-w-[190px] sm:max-w-[250px] lg:max-w-[285px]">
+            <span className="block text-sm font-black leading-tight text-[#111827] sm:text-base lg:text-lg">
               {brand.name}
             </span>
             <span className="block text-xs font-bold text-[#c1121f]">RC {brand.rcNumber}</span>
